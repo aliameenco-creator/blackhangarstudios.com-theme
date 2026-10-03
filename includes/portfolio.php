@@ -32,7 +32,7 @@ function bh_project_fields( $post ) {
     foreach ( array( 'film' => 'Film', 'tv' => 'TV', 'commercial' => 'Commercial', 'other' => 'Other' ) as $key => $label ) {
         echo '<option value="' . esc_attr( $key ) . '" ' . selected( get_post_meta( $post->ID, 'bh_format', true ), $key, false ) . '>' . esc_html( $label ) . '</option>';
     }
-    echo '</select></label></p><p><label><input type="checkbox" name="bh_home" value="1" ' . checked( get_post_meta( $post->ID, 'bh_home', true ), '1', false ) . '> Show in homepage poster rows</label></p><p>Use Featured image for the poster and the main editor for description / cast. Only valid YouTube links are accepted. SEO fields appear in Yoast.</p>';
+    echo '</select></label></p><p><label><input type="checkbox" name="bh_home" value="1" ' . checked( get_post_meta( $post->ID, 'bh_home', true ), '1', false ) . '> Show in homepage poster grid</label></p><p>Use Featured image for the poster and the main editor for description / cast. Only valid YouTube links are accepted. SEO fields appear in Yoast.</p>';
 }
 add_action( 'save_post_bh_portfolio', 'bh_save_project' );
 function bh_save_project( $post_id ) {
@@ -64,9 +64,13 @@ function bh_render_portfolio( $attributes ) {
     if ( $home ) { $args['meta_query'] = array( array( 'key' => 'bh_home', 'value' => '1' ) ); }
     if ( 'grid' === $mode ) { $args['paged'] = max( 1, absint( get_query_var( 'paged' ) ), absint( get_query_var( 'page' ) ) ); }
     $query = new WP_Query( $args );
-    if ( ! $query->have_posts() ) { return current_user_can( 'edit_posts' ) ? '<p class="bh-empty">Add published projects in Portfolio. Set a poster and enable the homepage checkbox to fill the moving rows.</p>' : ''; }
+    if ( ! $query->have_posts() ) { return current_user_can( 'edit_posts' ) ? '<p class="bh-empty">Add published projects in Portfolio. Set a poster and enable the homepage checkbox to display them here.</p>' : ''; }
     $posts = $query->posts;
     $cards = array_map( function ( $post ) { return bh_project_card( $post->ID ); }, $posts );
+    // Existing saved homepage blocks keep working without replacing their templates.
+    if ( $home && 'rows' === $mode ) {
+        return '<div class="bh-grid bh-home-posters" aria-label="Productions">' . implode( '', $cards ) . '</div>';
+    }
     if ( 'grid' === $mode ) {
         return '<div class="bh-grid">' . implode( '', $cards ) . '</div><nav aria-label="Portfolio pages" class="bh-pagination">' . wp_kses_post( paginate_links( array( 'total' => $query->max_num_pages, 'current' => $args['paged'] ) ) ) . '</nav>';
     }

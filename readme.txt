@@ -1,4 +1,4 @@
-Black Hangar — 0.3.0
+Black Hangar — 0.3.1
 ===================
 An editable WordPress block theme. Required content registration: CPT UI bh_portfolio.
 Recommended SEO editor: Yoast SEO. No Elementor or ACF dependency.

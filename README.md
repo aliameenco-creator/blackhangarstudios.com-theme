@@ -1,6 +1,6 @@
 # Black Hangar WordPress theme
 
-Custom editable block theme for Black Hangar Studios, version 0.3.0. Includes Homepage and Film Studio designs, Poppins typography, responsive navigation, production display blocks, article styles and progressive scroll animations.
+Custom editable block theme for Black Hangar Studios, version 0.3.1. Includes Homepage and Film Studio designs, Poppins typography, responsive navigation, production display blocks, article styles and progressive scroll animations. Homepage releases use a full-width static grid with clickable posters and upward scroll reveals; each selected production appears once.
 
 ## Install or update
 

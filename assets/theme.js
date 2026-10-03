@@ -26,7 +26,7 @@ function bhRevealPageSections() {
     if (!root || !('IntersectionObserver' in window)) return;
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (motion.matches) return;
-    const targets = root.querySelectorAll('.studio-image, .studio-copy, .story-panel, .blue-band, .productions .section-head, .partners, .faq > div, .contact, .spec-heading, .green-section .section-head, .green-image, .wall-specs');
+    const targets = root.querySelectorAll('.studio-image, .studio-copy, .story-panel, .blue-band, .productions .section-head, .bh-home-posters .bh-card, .partners, .faq > div, .contact, .spec-heading, .green-section .section-head, .green-image, .wall-specs');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

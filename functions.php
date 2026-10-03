@@ -8,6 +8,7 @@ add_action( 'after_setup_theme', function () {
     add_theme_support( 'editor-styles' );
     add_editor_style( 'assets/theme.css' );
     add_editor_style( 'assets/built-pages.css' );
+    add_editor_style( 'assets/poster-grid.css' );
     add_theme_support( 'post-thumbnails' );
 } );
 add_action( 'wp_enqueue_scripts', function () {
@@ -16,6 +17,7 @@ add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'black-hangar-blog-fixes', get_theme_file_uri( 'assets/blog-fixes.css' ), array( 'black-hangar-layout-fixes' ), (string) filemtime( get_theme_file_path( 'assets/blog-fixes.css' ) ) );
     wp_enqueue_style( 'black-hangar-reference-fixes', get_theme_file_uri( 'assets/reference-fixes.css' ), array( 'black-hangar-blog-fixes' ), (string) filemtime( get_theme_file_path( 'assets/reference-fixes.css' ) ) );
     wp_enqueue_style( 'black-hangar-built-pages', get_theme_file_uri( 'assets/built-pages.css' ), array( 'black-hangar-reference-fixes' ), (string) filemtime( get_theme_file_path( 'assets/built-pages.css' ) ) );
+    wp_enqueue_style( 'black-hangar-poster-grid', get_theme_file_uri( 'assets/poster-grid.css' ), array( 'black-hangar-built-pages' ), (string) filemtime( get_theme_file_path( 'assets/poster-grid.css' ) ) );
     wp_enqueue_script( 'black-hangar', get_theme_file_uri( 'assets/theme.js' ), array(), (string) filemtime( get_theme_file_path( 'assets/theme.js' ) ), true );
 } );
 add_action( 'init', function () {

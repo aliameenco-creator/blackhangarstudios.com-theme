@@ -223,3 +223,5 @@
 @media(max-width:900px){.bh-built .studio-image>.wp-block-image img{height:350px}.bh-built .stage-hero>.wp-block-image img{height:400px}.bh-built .hero h1{font-size:clamp(32px,5.3vw,48px)!important}}
 @media(max-width:600px){.bh-built .hero h1{white-space:normal;font-size:clamp(36px,8vw,48px)!important}.bh-built .stage-hero>.wp-block-image img{height:300px}.bh-built .bh-stage-table td:first-child{width:115px;padding-right:16px}.bh-built .bh-stage-table td{font-size:14px}.bh-built .bh-card{width:170px;flex-basis:170px}}
 @media(prefers-reduced-motion:reduce){.bh-built .bh-track{animation:none!important}.bh-built .bh-clone{display:none}.bh-built .bh-row{overflow-x:auto}}
+
+
