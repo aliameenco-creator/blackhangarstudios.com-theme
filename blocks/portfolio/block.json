@@ -1,0 +1,28 @@
+{
+  "apiVersion": 3,
+  "name": "black-hangar/portfolio",
+  "title": "Portfolio display",
+  "category": "widgets",
+  "editorScript": "bh-editor",
+  "supports": {
+    "html": false
+  },
+  "usesContext": [
+    "postId",
+    "postType"
+  ],
+  "attributes": {
+    "mode": {
+      "type": "string",
+      "default": "rows"
+    },
+    "twoRows": {
+      "type": "boolean",
+      "default": true
+    },
+    "homeOnly": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

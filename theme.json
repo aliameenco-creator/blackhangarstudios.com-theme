@@ -1,0 +1,242 @@
+{
+  "$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1440px"
+    },
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        {
+          "slug": "ink",
+          "name": "Background",
+          "color": "#0b0e11"
+        },
+        {
+          "slug": "surface",
+          "name": "Surface",
+          "color": "#171d23"
+        },
+        {
+          "slug": "paper",
+          "name": "Text",
+          "color": "#f5f3ee"
+        },
+        {
+          "slug": "muted",
+          "name": "Muted text",
+          "color": "#b4bdc7"
+        },
+        {
+          "slug": "accent",
+          "name": "Accent blue",
+          "color": "#65d5f0"
+        },
+        {
+          "slug": "line",
+          "name": "Borders",
+          "color": "#39434e"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "slug": "heading",
+          "name": "Barlow Condensed",
+          "fontFamily": "\"Barlow Condensed\", Impact, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Barlow Condensed",
+              "fontWeight": "600",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "src": [
+                "file:./assets/fonts/BarlowCondensed-SemiBold.ttf"
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "body",
+          "name": "Inter",
+          "fontFamily": "Inter, system-ui, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Inter",
+              "fontWeight": "100 900",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "src": [
+                "file:./assets/fonts/Inter.ttf"
+              ]
+            }
+          ]
+        }
+      ],
+      "fluid": true,
+      "fontSizes": [
+        {
+          "slug": "small",
+          "name": "Small",
+          "size": "14px"
+        },
+        {
+          "slug": "medium",
+          "name": "Body",
+          "size": "17px"
+        },
+        {
+          "slug": "large",
+          "name": "Large",
+          "size": "32px"
+        },
+        {
+          "slug": "x-large",
+          "name": "Heading",
+          "size": "64px",
+          "fluid": {
+            "min": "40px",
+            "max": "64px"
+          }
+        }
+      ]
+    },
+    "spacing": {
+      "units": [
+        "px",
+        "rem",
+        "%",
+        "vw",
+        "vh"
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var:preset|color|ink",
+      "text": "var:preset|color|paper"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|body",
+      "fontSize": "17px",
+      "lineHeight": "1.65"
+    },
+    "spacing": {
+      "blockGap": "24px"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|heading",
+          "fontWeight": "600",
+          "lineHeight": "1.1"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var:preset|color|paper"
+        },
+        ":hover": {
+          "color": {
+            "text": "var:preset|color|accent"
+          }
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var:preset|color|accent",
+          "text": "var:preset|color|ink"
+        },
+        "border": {
+          "radius": "0"
+        },
+        "spacing": {
+          "padding": {
+            "top": "16px",
+            "bottom": "16px",
+            "left": "26px",
+            "right": "26px"
+          }
+        },
+        "typography": {
+          "fontSize": "14px",
+          "fontWeight": "600"
+        }
+      }
+    }
+  },
+  "customTemplates": [
+    {
+      "name": "film-studio",
+      "title": "Film studio",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "videos",
+      "title": "Videos",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "services",
+      "title": "Services",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "portfolio",
+      "title": "Portfolio index",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "about",
+      "title": "About us",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "contact",
+      "title": "Contact",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "news",
+      "title": "News listing",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "legal-faq",
+      "title": "FAQ and legal pages",
+      "postTypes": [
+        "page"
+      ]
+    }
+  ],
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    }
+  ]
+}

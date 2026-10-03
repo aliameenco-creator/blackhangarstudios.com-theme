@@ -1,0 +1,14 @@
+{
+  "apiVersion": 3,
+  "name": "black-hangar/project",
+  "title": "Production detail",
+  "category": "widgets",
+  "editorScript": "bh-editor",
+  "supports": {
+    "html": false
+  },
+  "usesContext": [
+    "postId",
+    "postType"
+  ]
+}
