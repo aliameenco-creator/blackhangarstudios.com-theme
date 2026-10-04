@@ -2,6 +2,7 @@
 /** Black Hangar presentation and project editing. */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 require_once __DIR__ . '/includes/portfolio.php';
+require_once __DIR__ . '/includes/latest-portfolio.php';
 require_once __DIR__ . '/includes/portfolio-urls.php';
 require_once __DIR__ . '/includes/page-designs.php';
 require_once __DIR__ . '/includes/github-updater.php';
@@ -10,6 +11,7 @@ add_action( 'after_setup_theme', function () {
     add_editor_style( 'assets/theme.css' );
     add_editor_style( 'assets/built-pages.css' );
     add_editor_style( 'assets/poster-grid.css' );
+    add_editor_style( 'assets/latest-portfolio.css' );
     add_theme_support( 'post-thumbnails' );
 } );
 add_action( 'wp_enqueue_scripts', function () {
@@ -19,10 +21,11 @@ add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'black-hangar-reference-fixes', get_theme_file_uri( 'assets/reference-fixes.css' ), array( 'black-hangar-blog-fixes' ), (string) filemtime( get_theme_file_path( 'assets/reference-fixes.css' ) ) );
     wp_enqueue_style( 'black-hangar-built-pages', get_theme_file_uri( 'assets/built-pages.css' ), array( 'black-hangar-reference-fixes' ), (string) filemtime( get_theme_file_path( 'assets/built-pages.css' ) ) );
     wp_enqueue_style( 'black-hangar-poster-grid', get_theme_file_uri( 'assets/poster-grid.css' ), array( 'black-hangar-built-pages' ), (string) filemtime( get_theme_file_path( 'assets/poster-grid.css' ) ) );
+    wp_enqueue_style( 'black-hangar-latest-portfolio', get_theme_file_uri( 'assets/latest-portfolio.css' ), array( 'black-hangar-poster-grid' ), '0.3.4' );
     wp_enqueue_script( 'black-hangar', get_theme_file_uri( 'assets/theme.js' ), array(), (string) filemtime( get_theme_file_path( 'assets/theme.js' ) ), true );
 } );
 add_action( 'init', function () {
-    wp_register_script( 'bh-editor', get_theme_file_uri( 'assets/editor.js' ), array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-block-editor', 'wp-server-side-render' ), '0.1.0', true );
+    wp_register_script( 'bh-editor', get_theme_file_uri( 'assets/editor.js' ), array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-block-editor', 'wp-server-side-render' ), '0.3.4', true );
     foreach ( array( 'portfolio', 'project' ) as $name ) {
         register_block_type( __DIR__ . '/blocks/' . $name, array( 'render_callback' => 'bh_render_' . $name ) );
     }

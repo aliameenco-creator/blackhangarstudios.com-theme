@@ -59,6 +59,7 @@ function bh_project_card( $id ) {
 }
 function bh_render_portfolio( $attributes ) {
     $mode = $attributes['mode'] ?? 'rows';
+    if ( 'latest' === $mode ) { return bh_render_latest_portfolio(); }
     $home = ! empty( $attributes['homeOnly'] );
     $args = array( 'post_type' => 'bh_portfolio', 'post_status' => 'publish', 'posts_per_page' => 'grid' === $mode ? 12 : 40, 'orderby' => array( 'menu_order' => 'ASC', 'date' => 'DESC' ), 'post__not_in' => is_singular( 'bh_portfolio' ) ? array( get_the_ID() ) : array() );
     if ( $home ) { $args['meta_query'] = array( array( 'key' => 'bh_home', 'value' => '1' ) ); }

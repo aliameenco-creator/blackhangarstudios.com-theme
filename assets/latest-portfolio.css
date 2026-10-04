@@ -1,0 +1,13 @@
+/* Applied only to the compact latest-productions block. */
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-scroll{width:100%;max-width:none;overflow-x:auto;padding:0 0 8px}
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-posters{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:22px 20px;min-width:620px;width:100%;max-width:1000px;margin:0 auto;padding:0}
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-posters .bh-card{width:100%!important;max-width:none!important;min-width:0;margin:0;flex:none}
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-posters .bh-card>a{display:block;text-decoration:none;color:inherit}
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-posters .bh-poster{display:block;aspect-ratio:2/3;overflow:hidden;background:#151515}
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-posters .bh-poster img{display:block;width:100%!important;height:100%!important;object-fit:contain}
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-posters .bh-card h3{font-size:14px!important;line-height:1.4!important;font-weight:400!important;margin:8px 0 0!important;overflow-wrap:anywhere}
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-posters .bh-card p{display:none}
+:is(.wp-site-blocks,.editor-styles-wrapper) .productions:has(.bh-latest-scroll){padding-block:36px!important}
+:is(.wp-site-blocks,.editor-styles-wrapper) .productions:has(.bh-latest-scroll) .section-head{margin-bottom:22px!important}
+:is(.wp-site-blocks,.editor-styles-wrapper) .productions:has(.bh-latest-scroll) .section-head h2{font-size:clamp(28px,3vw,40px)!important;line-height:1.2!important;margin-block:0!important}
+@media(max-width:600px){:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-posters{gap:18px 14px;min-width:602px}:is(.wp-site-blocks,.editor-styles-wrapper) .bh-latest-posters .bh-card h3{font-size:13px!important}}
