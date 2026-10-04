@@ -9,7 +9,7 @@
                 return el('div', wp.blockEditor.useBlockProps(),
                     item[0] === 'portfolio' ? el(wp.blockEditor.InspectorControls, null,
                         el(wp.components.PanelBody, {title: 'Portfolio display'},
-                            el(wp.components.SelectControl, {label: 'Layout', value: props.attributes.mode, options: [{label: 'Latest productions — two compact rows', value: 'latest'}, {label: 'Moving rows', value: 'rows'}, {label: 'Poster grid', value: 'grid'}], onChange: value => props.setAttributes({mode: value})}),
+                            el(wp.components.SelectControl, {label: 'Layout', value: props.attributes.mode, options: [{label: 'Latest productions — two moving rows', value: 'latest'}, {label: 'Moving rows', value: 'rows'}, {label: 'Poster grid', value: 'grid'}], onChange: value => props.setAttributes({mode: value})}),
                             el(wp.components.ToggleControl, {label: 'Two opposite rows', checked: props.attributes.twoRows, onChange: value => props.setAttributes({twoRows: value})}),
                             el(wp.components.ToggleControl, {label: 'Homepage selections only', checked: props.attributes.homeOnly, onChange: value => props.setAttributes({homeOnly: value})})
                         )) : null,
