@@ -2,6 +2,7 @@
 /** Black Hangar presentation and project editing. */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 require_once __DIR__ . '/includes/portfolio.php';
+require_once __DIR__ . '/includes/portfolio-urls.php';
 require_once __DIR__ . '/includes/page-designs.php';
 require_once __DIR__ . '/includes/github-updater.php';
 add_action( 'after_setup_theme', function () {
