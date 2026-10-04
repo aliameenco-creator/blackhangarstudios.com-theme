@@ -51,3 +51,56 @@ if (document.readyState === 'loading') {
 } else {
     bhRevealPageSections();
 }
+
+function bhInitTestimonials() {
+    document.querySelectorAll('.wp-site-blocks .bh-client-testimonials').forEach(section => {
+        if (section.dataset.carouselReady) return;
+        const slides = Array.from(section.querySelectorAll(':scope > .bh-testimonial-copy'));
+        if (slides.length < 2) return;
+        section.dataset.carouselReady = 'true';
+        const stage = document.createElement('div');
+        stage.className = 'bh-testimonial-stage';
+        section.append(stage);
+        slides.forEach(slide => stage.append(slide));
+        const controls = document.createElement('div');
+        controls.className = 'bh-testimonial-controls';
+        controls.setAttribute('aria-label', 'Testimonial controls');
+        section.append(controls);
+        let active = 0, paused = false, hovered = false, focused = false;
+        const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const dots = slides.map((slide, index) => {
+            const button = document.createElement('button');
+            button.type = 'button'; button.className = 'bh-testimonial-dot';
+            button.setAttribute('aria-label', 'Show testimonial from ' + slide.querySelector('h3').textContent);
+            button.addEventListener('click', () => show(index));
+            controls.append(button); return button;
+        });
+        const pause = document.createElement('button');
+        pause.type = 'button'; pause.textContent = 'Pause'; pause.setAttribute('aria-pressed', 'false');
+        pause.addEventListener('click', () => {
+            paused = !paused;
+            pause.textContent = paused ? 'Resume' : 'Pause';
+            pause.setAttribute('aria-pressed', String(paused));
+        });
+        controls.append(pause);
+        function show(index) {
+            active = index;
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('is-active', i === active);
+                slide.setAttribute('aria-hidden', String(i !== active));
+                slide.inert = i !== active;
+                dots[i].setAttribute('aria-current', String(i === active));
+            });
+        }
+        section.addEventListener('mouseenter', () => { hovered = true; });
+        section.addEventListener('mouseleave', () => { hovered = false; });
+        section.addEventListener('focusin', () => { focused = true; });
+        section.addEventListener('focusout', event => { focused = section.contains(event.relatedTarget); });
+        show(0);
+        window.setInterval(() => {
+            if (section.isConnected && !paused && !hovered && !focused && !motion.matches && !document.hidden) show((active + 1) % slides.length);
+        }, 8000);
+    });
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bhInitTestimonials);
+else bhInitTestimonials();

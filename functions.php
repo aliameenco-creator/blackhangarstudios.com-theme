@@ -23,12 +23,12 @@ add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'black-hangar-reference-fixes', get_theme_file_uri( 'assets/reference-fixes.css' ), array( 'black-hangar-blog-fixes' ), (string) filemtime( get_theme_file_path( 'assets/reference-fixes.css' ) ) );
     wp_enqueue_style( 'black-hangar-built-pages', get_theme_file_uri( 'assets/built-pages.css' ), array( 'black-hangar-reference-fixes' ), (string) filemtime( get_theme_file_path( 'assets/built-pages.css' ) ) );
     wp_enqueue_style( 'black-hangar-poster-grid', get_theme_file_uri( 'assets/poster-grid.css' ), array( 'black-hangar-built-pages' ), (string) filemtime( get_theme_file_path( 'assets/poster-grid.css' ) ) );
-    wp_enqueue_style( 'black-hangar-latest-portfolio', get_theme_file_uri( 'assets/latest-portfolio.css' ), array( 'black-hangar-poster-grid' ), '0.3.6' );
-    wp_enqueue_style( 'black-hangar-trust-footer', get_theme_file_uri( 'assets/trust-footer.css' ), array( 'black-hangar-latest-portfolio' ), '0.3.6' );
+    wp_enqueue_style( 'black-hangar-latest-portfolio', get_theme_file_uri( 'assets/latest-portfolio.css' ), array( 'black-hangar-poster-grid' ), '0.3.7' );
+    wp_enqueue_style( 'black-hangar-trust-footer', get_theme_file_uri( 'assets/trust-footer.css' ), array( 'black-hangar-latest-portfolio' ), '0.3.7' );
     wp_enqueue_script( 'black-hangar', get_theme_file_uri( 'assets/theme.js' ), array(), (string) filemtime( get_theme_file_path( 'assets/theme.js' ) ), true );
 } );
 add_action( 'init', function () {
-    wp_register_script( 'bh-editor', get_theme_file_uri( 'assets/editor.js' ), array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-block-editor', 'wp-server-side-render' ), '0.3.6', true );
+    wp_register_script( 'bh-editor', get_theme_file_uri( 'assets/editor.js' ), array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-block-editor', 'wp-server-side-render' ), '0.3.7', true );
     foreach ( array( 'portfolio', 'project' ) as $name ) {
         register_block_type( __DIR__ . '/blocks/' . $name, array( 'render_callback' => 'bh_render_' . $name ) );
     }
