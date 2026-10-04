@@ -66,13 +66,13 @@ function bhInitTestimonials() {
         controls.className = 'bh-testimonial-controls';
         controls.setAttribute('aria-label', 'Testimonial controls');
         section.append(controls);
-        let active = 0, paused = false, hovered = false, focused = false;
+        let active = 0, paused = false, hovered = false, focused = false, transitionTimer;
         const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
         const dots = slides.map((slide, index) => {
             const button = document.createElement('button');
             button.type = 'button'; button.className = 'bh-testimonial-dot';
             button.setAttribute('aria-label', 'Show testimonial from ' + slide.querySelector('h3').textContent);
-            button.addEventListener('click', () => show(index));
+            button.addEventListener('click', () => change(index));
             controls.append(button); return button;
         });
         const pause = document.createElement('button');
@@ -83,6 +83,19 @@ function bhInitTestimonials() {
             pause.setAttribute('aria-pressed', String(paused));
         });
         controls.append(pause);
+        [['Previous testimonial', '‹', -1], ['Next testimonial', '›', 1]].forEach(([label, symbol, step]) => {
+            const arrow = document.createElement('button');
+            arrow.type = 'button'; arrow.className = 'bh-testimonial-arrow ' + (step < 0 ? 'bh-testimonial-prev' : 'bh-testimonial-next');
+            arrow.textContent = symbol; arrow.setAttribute('aria-label', label);
+            arrow.addEventListener('click', () => change((active + step + slides.length) % slides.length));
+            section.append(arrow);
+        });
+        function change(index) {
+            window.clearTimeout(transitionTimer);
+            if (motion.matches) { show(index); return; }
+            slides[active].classList.remove('is-active');
+            transitionTimer = window.setTimeout(() => show(index), 350);
+        }
         function show(index) {
             active = index;
             slides.forEach((slide, i) => {
@@ -98,7 +111,7 @@ function bhInitTestimonials() {
         section.addEventListener('focusout', event => { focused = section.contains(event.relatedTarget); });
         show(0);
         window.setInterval(() => {
-            if (section.isConnected && !paused && !hovered && !focused && !motion.matches && !document.hidden) show((active + 1) % slides.length);
+            if (section.isConnected && !paused && !hovered && !focused && !motion.matches && !document.hidden) change((active + 1) % slides.length);
         }, 8000);
     });
 }

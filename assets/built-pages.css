@@ -132,7 +132,7 @@
 .bh-built .poster-window{overflow-x:auto}
 }
 .bh-built .hero-content{width:100%;max-width:1240px}
-.bh-built .hero h1{max-width:none;font-size:clamp(40px,5.3vw,76px);white-space:nowrap;letter-spacing:-.035em;line-height:1.15}
+:where(.bh-built .hero) h1:where(:not([style*="font-size"]):not([class*="-font-size"])){max-width:none;font-size:clamp(40px,5.3vw,76px);white-space:nowrap;letter-spacing:-.035em;line-height:1.15}
 .bh-built .hero .eyebrow{margin-bottom:22px}
 .bh-built .hero-desc{max-width:580px;margin:26px 0 32px;line-height:1.75}
 .bh-built .hero .button{min-height:52px;padding:14px 28px}
@@ -143,9 +143,9 @@
 .bh-built .scroll-reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
 .bh-built .scroll-reveal.is-visible{opacity:1;transform:translateY(0)}
 @media(max-width:900px){.bh-built .facility-grid,.bh-built .blue-band{grid-template-columns:1fr}
-.bh-built .hero h1{font-size:clamp(32px,5.3vw,48px)}
+:where(.bh-built .hero) h1:where(:not([style*="font-size"]):not([class*="-font-size"])){font-size:clamp(32px,5.3vw,48px)}
 }
-@media(max-width:600px){.bh-built .hero h1{white-space:normal;max-width:520px;font-size:clamp(36px,8vw,48px)}
+@media(max-width:600px){:where(.bh-built .hero) h1:where(:not([style*="font-size"]):not([class*="-font-size"])){white-space:normal;max-width:520px;font-size:clamp(36px,8vw,48px)}
 .bh-built .hero-desc{margin-top:24px}
 .bh-built .hero{padding-top:64px;padding-bottom:64px;min-height:580px}
 }
@@ -206,7 +206,7 @@
 .bh-built h1,.bh-built h2,.bh-built h3{margin:0;line-height:1.13}.bh-built p{margin-block:0 24px}
 .bh-built .hero{overflow:hidden;width:100%;max-width:none!important}.bh-built .hero .wp-block-cover__inner-container{width:100%;max-width:1240px;margin:0}
 .bh-built .hero .wp-block-cover__image-background{object-fit:cover}.bh-built .hero:before{z-index:1;pointer-events:none}.bh-built .hero .wp-block-cover__inner-container{position:relative;z-index:2}
-.bh-built .hero h1{white-space:nowrap;font-size:clamp(40px,5.3vw,76px)!important}.bh-built .hero .hero-desc{margin:26px 0 32px;max-width:580px}
+:where(.bh-built .hero) h1:where(:not([style*="font-size"]):not([class*="-font-size"])){white-space:nowrap;font-size:clamp(40px,5.3vw,76px)}.bh-built .hero .hero-desc{margin:26px 0 32px;max-width:580px}
 .bh-built .wp-block-button.bh-design-button .wp-block-button__link{background:#00b5ed;color:#06151c;padding:16px 23px;font-size:14px;font-weight:500;border-radius:0;text-decoration:none}
 .bh-built .contact .wp-block-buttons{justify-content:center}.bh-built .studio-image>p{background:#00b5ed;color:#06151c;padding:15px 20px;font-size:12px;letter-spacing:.12em;margin:0}
 .bh-built .stage-hero>.wp-block-image{height:100%;margin:0}.bh-built .stage-hero>.wp-block-image img{width:100%;height:100%;object-fit:cover;max-height:760px}
@@ -220,8 +220,15 @@
 .bh-built .bh-pause{display:none!important}.bh-built .bh-track{animation:bh-scroll 28s linear infinite!important;animation-play-state:running!important}.bh-built .bh-reverse .bh-track{animation-direction:reverse!important}
 .bh-built .bh-row:hover .bh-track,.bh-built .bh-row:focus-within .bh-track,.bh-built .is-paused .bh-track{animation-play-state:running!important}
 .bh-built .bh-card{width:210px;flex:0 0 210px}.bh-built .bh-card h3{font-size:18px!important}.bh-built .bh-marquee{overflow:hidden;padding:24px 0}
-@media(max-width:900px){.bh-built .studio-image>.wp-block-image img{height:350px}.bh-built .stage-hero>.wp-block-image img{height:400px}.bh-built .hero h1{font-size:clamp(32px,5.3vw,48px)!important}}
-@media(max-width:600px){.bh-built .hero h1{white-space:normal;font-size:clamp(36px,8vw,48px)!important}.bh-built .stage-hero>.wp-block-image img{height:300px}.bh-built .bh-stage-table td:first-child{width:115px;padding-right:16px}.bh-built .bh-stage-table td{font-size:14px}.bh-built .bh-card{width:170px;flex-basis:170px}}
+@media(max-width:900px){.bh-built .studio-image>.wp-block-image img{height:350px}.bh-built .stage-hero>.wp-block-image img{height:400px}:where(.bh-built .hero) h1:where(:not([style*="font-size"]):not([class*="-font-size"])){font-size:clamp(32px,5.3vw,48px)}}
+@media(max-width:600px){:where(.bh-built .hero) h1:where(:not([style*="font-size"]):not([class*="-font-size"])){white-space:normal;font-size:clamp(36px,8vw,48px)}.bh-built .stage-hero>.wp-block-image img{height:300px}.bh-built .bh-stage-table td:first-child{width:115px;padding-right:16px}.bh-built .bh-stage-table td{font-size:14px}.bh-built .bh-card{width:170px;flex-basis:170px}}
 @media(prefers-reduced-motion:reduce){.bh-built .bh-track{animation:none!important}.bh-built .bh-clone{display:none}.bh-built .bh-row{overflow-x:auto}}
 
 
+
+/* Cover content uses consistent gutters; native heading typography stays editable. */
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-built .hero.wp-block-cover{padding-inline:clamp(24px,6vw,112px)}
+:is(.wp-site-blocks,.editor-styles-wrapper) .hero .wp-block-cover__inner-container{width:100%;min-width:0;margin-inline:0;text-align:left}
+:is(.wp-site-blocks,.editor-styles-wrapper) .hero .wp-block-cover__inner-container>:is(h1,p,.wp-block-buttons){margin-left:0;margin-right:0}
+:is(.wp-site-blocks,.editor-styles-wrapper) .hero h1{white-space:normal;overflow-wrap:normal}
+@media(max-width:600px){:is(.wp-site-blocks,.editor-styles-wrapper) .bh-built .hero.wp-block-cover{padding-inline:24px}}

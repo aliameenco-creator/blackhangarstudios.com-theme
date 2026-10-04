@@ -6,14 +6,27 @@
 :is(.wp-site-blocks,.editor-styles-wrapper) .bh-testimonial-copy blockquote{margin:0;padding:0;border:0;font-weight:400!important}
 :is(.wp-site-blocks,.editor-styles-wrapper) .bh-testimonial-copy blockquote p{font-size:clamp(17px,1.4vw,20px)!important;line-height:1.65!important;font-weight:400!important;color:#bdbdbd;margin:0}
 .bh-testimonial-stage{display:grid;align-items:start}
-.bh-testimonial-stage>.bh-testimonial-copy{grid-area:1/1;width:100%;opacity:0;visibility:hidden;transition:opacity .65s ease,visibility .65s;pointer-events:none}
+.bh-testimonial-stage>.bh-testimonial-copy{grid-area:1/1;width:100%;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s;pointer-events:none}
 .bh-testimonial-stage>.bh-testimonial-copy.is-active{opacity:1;visibility:visible;pointer-events:auto}
 .bh-testimonial-controls{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:30px}
 .bh-testimonial-controls button{appearance:none;border:0;background:transparent;color:#aaa;font:inherit;cursor:pointer;padding:8px}
 .bh-testimonial-controls .bh-testimonial-dot{width:9px;height:9px;border-radius:50%;padding:0;background:#777}
 .bh-testimonial-controls .bh-testimonial-dot[aria-current=true]{background:#fff;outline:1px solid #fff;outline-offset:4px}
 .bh-testimonial-controls button:focus-visible{outline:2px solid #fff;outline-offset:4px}
-.editor-styles-wrapper .bh-testimonial-copy+.bh-testimonial-copy{margin-top:40px}
+/* The editor shows one quote; select another quote in List View to edit it. */
+.editor-styles-wrapper .bh-client-testimonials .bh-testimonial-copy~.bh-testimonial-copy{display:none}
+.editor-styles-wrapper .bh-client-testimonials:has(.bh-testimonial-copy:is(.is-selected,.has-child-selected)) .bh-testimonial-copy{display:none}
+.editor-styles-wrapper .bh-client-testimonials .bh-testimonial-copy:is(.is-selected,.has-child-selected){display:block!important}
+.wp-site-blocks .bh-client-testimonials:not([data-carousel-ready])>.bh-testimonial-copy~.bh-testimonial-copy{display:none}
+:is(.wp-site-blocks,.editor-styles-wrapper) .bh-client-testimonials{position:relative;padding-inline:clamp(48px,7vw,110px)}
+.bh-testimonial-arrow{position:absolute;top:55%;transform:translateY(-50%);border:0;background:transparent;color:#ddd;cursor:pointer;font-size:48px;line-height:1;width:44px;height:56px;padding:0}
+.bh-testimonial-prev{left:clamp(4px,2vw,32px)}
+.bh-testimonial-next{right:clamp(4px,2vw,32px)}
+.bh-testimonial-arrow:hover{color:#fff}
+.bh-testimonial-arrow:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.editor-styles-wrapper .bh-client-testimonials::before,.editor-styles-wrapper .bh-client-testimonials::after{position:absolute;top:55%;font-size:40px;color:#aaa;pointer-events:none}
+.editor-styles-wrapper .bh-client-testimonials::before{content:'‹';left:12px}
+.editor-styles-wrapper .bh-client-testimonials::after{content:'›';right:12px}
 :is(.wp-site-blocks,.editor-styles-wrapper) .bh-press-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;max-width:1280px;margin:0 auto}
 :is(.wp-site-blocks,.editor-styles-wrapper) .bh-press-card{padding:32px 24px;border:0;border-top:1px solid #373737;margin:0;text-align:left}
 :is(.wp-site-blocks,.editor-styles-wrapper) .bh-press-card h3{font-size:21px!important;font-weight:400!important;margin:16px 0}
@@ -32,3 +45,5 @@
 :is(.wp-site-blocks,.editor-styles-wrapper) .bh-footer-bottom p{font-size:13px!important;color:#888}
 @media(max-width:700px){:is(.wp-site-blocks,.editor-styles-wrapper) :is(.bh-press-grid,.bh-footer-grid){grid-template-columns:1fr;gap:28px}:is(.wp-site-blocks,.editor-styles-wrapper) :is(.bh-client-testimonials,.bh-press-mentions){padding:48px 24px}:is(.wp-site-blocks,.editor-styles-wrapper) .bh-press-card{padding:24px 0}}
 @media(prefers-reduced-motion:reduce){.bh-testimonial-stage>.bh-testimonial-copy{transition:none}}
+
+@media(max-width:700px){:is(.wp-site-blocks,.editor-styles-wrapper) .bh-client-testimonials{padding-inline:48px}.bh-testimonial-arrow{font-size:38px;width:36px}}
