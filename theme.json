@@ -103,7 +103,13 @@
             "max": "64px"
           }
         }
-      ]
+      ],
+      "customFontSize": true,
+      "fontStyle": true,
+      "fontWeight": true,
+      "letterSpacing": true,
+      "lineHeight": true,
+      "textTransform": true
     },
     "spacing": {
       "units": [

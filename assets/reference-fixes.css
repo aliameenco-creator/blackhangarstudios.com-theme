@@ -1,29 +1,42 @@
 /* Paste LAST in Additional CSS. Upload the supplied fonts to the path below. */
-@font-face { font-family:BH Poppins; font-style:normal; font-weight:300; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Light.ttf') format('truetype'); }
+@font-face { font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Light.ttf') format('truetype')}
+:where(/* Paste LAST in Additional CSS. Upload the supplied fonts to the path below. */
+@font-face){ font-family:BH Poppins; font-style:normal; font-weight:300}
 @font-face { font-family:BH Poppins; font-style:normal; font-weight:400; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Regular.ttf') format('truetype'); }
 @font-face { font-family:BH Poppins; font-style:italic; font-weight:400; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Italic.ttf') format('truetype'); }
 @font-face { font-family:BH Poppins; font-style:normal; font-weight:500; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Medium.ttf') format('truetype'); }
-.wp-site-blocks { --wp--preset--font-family--heading:'BH Poppins',Poppins,sans-serif; --wp--preset--font-family--body:'BH Poppins',Poppins,sans-serif; font-family:'BH Poppins',Poppins,sans-serif !important; font-weight:400; background:#101010; color:#fff; }
-.wp-site-blocks :is(h1,h2,h3,h4,h5,h6,.wp-block-post-title,.bh-brand) { font-family:'BH Poppins',Poppins,sans-serif !important; font-weight:500 !important; letter-spacing:normal !important; text-transform:none !important; }
-.wp-site-blocks :is(p,li,.wp-block-navigation,button,.wp-element-button) { font-family:'BH Poppins',Poppins,sans-serif; }
-.wp-site-blocks .bh-section h2 { font-size:clamp(28px,3vw,44px); line-height:1.25; }
+.wp-site-blocks { --wp--preset--font-family--heading:'BH Poppins',Poppins,sans-serif; --wp--preset--font-family--body:'BH Poppins',Poppins,sans-serif; background:#101010; color:#fff}
+:where(.wp-site-blocks){ font-family:'BH Poppins',Poppins,sans-serif ; font-weight:400}
+.wp-site-blocks :is(h1,h2,h3,h4,h5,h6,.wp-block-post-title,.bh-brand) {}
+:where(.wp-site-blocks :is(h1,h2,h3,h4,h5,h6,.wp-block-post-title,.bh-brand)){ font-family:'BH Poppins',Poppins,sans-serif ; font-weight:500 ; letter-spacing:normal ; text-transform:none }
+.wp-site-blocks :is(p,li,.wp-block-navigation,button,.wp-element-button) {}
+:where(.wp-site-blocks :is(p,li,.wp-block-navigation,button,.wp-element-button)){ font-family:'BH Poppins',Poppins,sans-serif}
+.wp-site-blocks .bh-section h2 {}
+:where(.wp-site-blocks .bh-section h2){ font-size:clamp(28px,3vw,44px); line-height:1.25}
 .wp-site-blocks .bh-project-layout { max-width:860px !important; grid-template-columns:minmax(0,386px) minmax(0,1fr) !important; gap:44px !important; }
 .wp-site-blocks .bh-project-poster { width:100%; max-width:none; }
 .wp-site-blocks .bh-project-poster img { display:block; width:100%; height:auto; max-height:none; object-fit:contain; }
-.wp-site-blocks .bh-project-layout h1 { font-size:clamp(30px,3.2vw,48px) !important; line-height:1.2 !important; margin:12px 0 24px !important; }
+.wp-site-blocks .bh-project-layout h1 { margin:12px 0 24px !important}
+:where(.wp-site-blocks .bh-project-layout h1){ font-size:clamp(30px,3.2vw,48px) ; line-height:1.2 }
 .wp-site-blocks .bh-project-layout .bh-eyebrow { display:none; }
-.wp-site-blocks .bh-project-copy { font-size:18px; font-weight:300; line-height:1.5; }
+.wp-site-blocks .bh-project-copy {}
+:where(.wp-site-blocks .bh-project-copy){ font-size:18px; font-weight:300; line-height:1.5}
 .wp-site-blocks .bh-project-copy p { margin-block:0 28px; }
 .wp-site-blocks .bh-trailer { max-width:930px; margin-top:76px; }
-.wp-site-blocks .bh-trailer h2 { font-size:clamp(28px,3.2vw,46px) !important; font-weight:500 !important; margin-bottom:30px; }
+.wp-site-blocks .bh-trailer h2 { margin-bottom:30px}
+:where(.wp-site-blocks .bh-trailer h2){ font-size:clamp(28px,3.2vw,46px) ; font-weight:500 }
 .wp-site-blocks .bh-trailer .bh-video { max-width:930px; }
-.wp-site-blocks .bh-prose h1 { font-size:clamp(32px,4vw,52px) !important; line-height:1.2; }
-.wp-site-blocks .bh-news .wp-block-post-title { font-size:clamp(23px,2vw,28px); font-weight:500; }
-.wp-site-blocks .bh-header .wp-block-navigation { font-weight:400; font-size:14px; }
+.wp-site-blocks .bh-prose h1 {}
+:where(.wp-site-blocks .bh-prose h1){ font-size:clamp(32px,4vw,52px) ; line-height:1.2}
+.wp-site-blocks .bh-news .wp-block-post-title {}
+:where(.wp-site-blocks .bh-news .wp-block-post-title){ font-size:clamp(23px,2vw,28px); font-weight:500}
+.wp-site-blocks .bh-header .wp-block-navigation {}
+:where(.wp-site-blocks .bh-header .wp-block-navigation){ font-weight:400; font-size:14px}
 @media(min-width:1101px) { .wp-site-blocks .bh-header .wp-block-navigation__container { gap:clamp(18px,3vw,56px); } }
 @media(max-width:700px) {
   .wp-site-blocks .bh-project-layout { grid-template-columns:1fr !important; gap:28px !important; }
   .wp-site-blocks .bh-project-poster { width:min(100%,386px); margin-inline:auto; }
-  .wp-site-blocks .bh-project-copy { font-size:16px; line-height:1.65; }
+  .wp-site-blocks .bh-project-copy {}
+:where(.wp-site-blocks .bh-project-copy){ font-size:16px; line-height:1.65}
   .wp-site-blocks .bh-trailer { margin-top:40px; }
 }
