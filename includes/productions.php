@@ -1,8 +1,7 @@
 <?php
 /**
  * Client requests (2026-10-19), offered on Appearance -> Black Hangar Pages:
- * - "Our Studio" button next to Portfolio in the homepage hero (in templates/front-page.html) opening a popup with
- *   the studio videos.
+ * - "Our Studio" button next to Portfolio in the homepage hero: see includes/home.php.
  * - The finished productions The Fallow Few, The Chair and Frost added to the Portfolio as drafts, using only
  *   verified text from the archived Fallow Few site and ORWO Distribution. Add posters and years, then publish.
  */
@@ -62,30 +61,3 @@ function bh_add_new_productions() {
     }
     return $added;
 }
-
-/**
- * "Our Studio" popup on the homepage: the hero's Our Studio button opens the studio showreel and studio video tour.
- * Videos come from the Media Library (migration import, found by their source hash) or, if missing, their original
- * address. Without JavaScript the button simply opens the Videos page.
- */
-function bh_studio_video_url( $sha, $fallback ) {
-    $ids = get_posts( array( 'post_type' => 'attachment', 'post_status' => 'inherit', 'meta_key' => '_pmi_key', 'meta_value' => 'media:' . $sha, 'fields' => 'ids', 'numberposts' => 1, 'suppress_filters' => true ) ); // phpcs:ignore WordPress.DB.SlowDBQuery
-    return $ids ? wp_get_attachment_url( $ids[0] ) : $fallback;
-}
-
-add_action( 'wp_footer', function () {
-    if ( ! is_front_page() ) { return; }
-    $videos = array(
-        array( 'Showreel', bh_studio_video_url( '9f6753c92574475aa66cf2ad47814da04e6b7e8a1196482ef3e30dae9ac7a403', 'https://video.wixstatic.com/video/0da2fe_c308a38ca0a74693b9091e117d3095f8/1080p/mp4/file.mp4' ), bh_studio_video_url( 'b4d8c558fd7359995b6889d6f9a20c302a6da228c3d592fdfb3fbf1017880dc0', '' ), 'is-scope' ),
-        array( 'Studio tour', bh_studio_video_url( '87a8648aa5be98a22973514142d77b516488334fd810ee91300f671a1c042fc9', 'https://video.wixstatic.com/video/0da2fe_5818c9c46c5a4706943f082ed0998e41/1080p/mp4/file.mp4' ), bh_studio_video_url( 'ccf351569271f633925d77dfec0e619bdfccd316e5d52afbfabd7eff0f3bd6e3', '' ), 'is-wide' ),
-    );
-    echo '<dialog class="bh-studio-modal" id="bh-studio-modal" aria-label="Our Studio videos"><div class="bh-studio-modal-inner"><div class="bh-studio-modal-head"><p class="bh-studio-modal-title">Our Studio</p><div class="bh-studio-tabs" role="tablist">';
-    foreach ( $videos as $i => $video ) {
-        echo '<button type="button" role="tab" aria-selected="' . ( $i ? 'false' : 'true' ) . '" data-bh-tab="' . (int) $i . '">' . esc_html( $video[0] ) . '</button>';
-    }
-    echo '</div><button type="button" class="bh-studio-close" aria-label="Close">&times;</button></div>';
-    foreach ( $videos as $i => $video ) {
-        echo '<div class="bh-studio-video ' . esc_attr( $video[3] ) . '" data-bh-panel="' . (int) $i . '"' . ( $i ? ' hidden' : '' ) . '><video controls playsinline preload="none"' . ( $video[2] ? ' poster="' . esc_url( $video[2] ) . '"' : '' ) . ' src="' . esc_url( $video[1] ) . '"></video></div>';
-    }
-    echo '<p class="bh-studio-more"><a href="/videos">More studio videos and the 360° virtual tour &rarr;</a></p></div></dialog>';
-} );

@@ -199,7 +199,7 @@
 .bh-page .bh-tour-section .bh-embed { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16 / 8; }
 .bh-page .bh-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: clamp(180px, 18vw, 300px); gap: 14px; }
 .bh-page .bh-gallery > * { margin: 0 !important; border-radius: 12px; overflow: hidden; position: relative; }
-.bh-page .bh-gallery > *:first-child { grid-row: span 2; }
+.bh-page .bh-gallery > *:first-child { grid-column: span 2; grid-row: span 2; }
 .bh-page .bh-gallery img, .bh-page .bh-gallery video { display: block; width: 100%; height: 100% !important; object-fit: cover; transition: transform 1s cubic-bezier(.2, .7, .2, 1); }
 .bh-page .bh-gallery > .wp-block-image:hover img { transform: scale(1.06); }
 
@@ -291,8 +291,11 @@
     .bh-page .bh-squadron { padding: 18px 16px; }
     .bh-page .bh-squadron-number { font-size: 30px; }
     .bh-page .bh-media-pair { grid-template-columns: 1fr; }
-    .bh-page .bh-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; gap: 10px; }
-    .bh-page .bh-gallery > *:first-child { grid-row: auto; }
+    .bh-page .bh-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; gap: 10px; }
+    .bh-page .bh-gallery > * { aspect-ratio: 4 / 3; }
+    .bh-page .bh-gallery > *:first-child, .bh-page .bh-gallery > *:last-child { aspect-ratio: 16 / 9; }
+    .bh-page .bh-gallery > *:first-child { grid-column: 1 / -1; grid-row: auto; }
+    .bh-page .bh-gallery > *:last-child { grid-column: 1 / -1; }
     .bh-page .bh-accordion ul, .bh-page .bh-plain-list { columns: 1; }
     .bh-page .bh-contact-info { grid-template-columns: 1fr; }
     .bh-form .form-grid { grid-template-columns: 1fr; }
@@ -304,32 +307,6 @@
     .bh-page .bh-reveal { opacity: 1; transform: none; }
 }
 
-/* Homepage "Our Studio" button (next to Portfolio) and its video popup. Only these two elements are styled here. */
+/* Homepage "Our Studio" button (next to Portfolio, added by includes/home.php). */
 .wp-block-button.bh-studio-button .wp-block-button__link { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .7); transition: border-color .25s ease, color .25s ease, background .25s ease; }
 .wp-block-button.bh-studio-button .wp-block-button__link:hover { border-color: #65d5f0; color: #65d5f0; background: rgba(0, 0, 0, .25); }
-.wp-block-button.bh-studio-button .wp-block-button__link::before { content: '▶'; font-size: .7em; margin-right: 8px; vertical-align: 1px; }
-.bh-studio-modal { font-family: Poppins, sans-serif; width: min(1100px, 94vw); max-height: 92vh; padding: 0; border: 1px solid #2c3338; border-radius: 16px; background: #0d1013; color: #fff; overflow: auto; }
-.bh-studio-modal::backdrop { background: rgba(0, 0, 0, .78); backdrop-filter: blur(4px); }
-.bh-studio-modal[open] { animation: bh-modal-in .35s cubic-bezier(.2, .7, .2, 1); }
-@keyframes bh-modal-in { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
-.bh-studio-modal-inner { padding: 18px 22px 20px; }
-.bh-studio-modal-head { display: flex; align-items: center; gap: 18px; margin-bottom: 14px; }
-.bh-studio-modal-title { margin: 0; font-size: 20px; font-weight: 500; }
-.bh-studio-tabs { display: flex; gap: 6px; flex: 1; }
-.bh-studio-tabs button { background: transparent; color: #b4bdc7; border: 1px solid #39434e; border-radius: 999px; padding: 6px 16px; font: inherit; font-size: 14px; cursor: pointer; }
-.bh-studio-tabs button[aria-selected="true"] { background: #65d5f0; border-color: #65d5f0; color: #0b0e11; }
-.bh-studio-close { background: transparent; border: 0; color: #fff; font-size: 30px; line-height: 1; cursor: pointer; padding: 0 4px; }
-.bh-studio-close:hover { color: #65d5f0; }
-.bh-studio-video { border-radius: 10px; overflow: hidden; background: #000; }
-.bh-studio-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
-.bh-studio-video.is-scope video { aspect-ratio: 2.4 / 1; }
-.bh-studio-video.is-wide video { aspect-ratio: 2 / 1; }
-.bh-studio-more { margin: 14px 0 0; font-size: 14px; }
-.bh-studio-more a { color: #65d5f0; }
-@media (max-width: 600px) {
-    .bh-studio-modal-inner { padding: 14px; }
-    .bh-studio-modal-head { flex-wrap: wrap; gap: 10px; }
-    .bh-studio-modal-title { flex: 1; }
-    .bh-studio-tabs { order: 3; flex-basis: 100%; }
-}
-@media (prefers-reduced-motion: reduce) { .bh-studio-modal[open] { animation: none; } }

@@ -98,31 +98,59 @@
         });
     }
 
-    /* Homepage "Our Studio" button: open the studio video popup (falls back to the Videos page without JavaScript). */
-    function studio() {
-        const modal = document.getElementById('bh-studio-modal');
-        if (!modal || typeof modal.showModal !== 'function') return;
-        const videos = () => modal.querySelectorAll('video');
-        const show = index => {
-            modal.querySelectorAll('[data-bh-tab]').forEach(tab => tab.setAttribute('aria-selected', String(tab.dataset.bhTab === String(index))));
-            modal.querySelectorAll('[data-bh-panel]').forEach(panel => { panel.hidden = panel.dataset.bhPanel !== String(index); });
-            videos().forEach(video => video.pause());
-        };
-        document.querySelectorAll('.bh-studio-button a').forEach(link => link.addEventListener('click', event => {
-            event.preventDefault();
-            show(0);
-            modal.showModal();
-        }));
-        modal.querySelectorAll('[data-bh-tab]').forEach(tab => tab.addEventListener('click', () => show(tab.dataset.bhTab)));
-        modal.querySelector('.bh-studio-close').addEventListener('click', () => modal.close());
-        modal.addEventListener('click', event => { if (event.target === modal) modal.close(); });
-        modal.addEventListener('close', () => videos().forEach(video => video.pause()));
+    /* Poster rows: keep moving on their own, and visitors can swipe, drag or scroll them (no pause button). */
+    function marquees() {
+        document.querySelectorAll('.bh-row, .bh-latest-row').forEach(row => {
+            const track = row.querySelector('.bh-track, .bh-latest-track');
+            if (!track || row.dataset.bhScroll) return;
+            row.dataset.bhScroll = '1';
+            const style = getComputedStyle(track);
+            const duration = parseFloat(style.animationDuration) || 60;
+            const direction = (row.classList.contains('bh-reverse') || track.classList.contains('bh-latest-reverse') || style.animationDirection === 'reverse') ? -1 : 1;
+            row.classList.add('bh-js-scroll');
+            let half = track.scrollWidth / 2;
+            let position = direction < 0 ? half : 0;
+            let resumeAt = 0, dragging = false, moved = false, startX = 0, startPosition = 0, last = performance.now();
+            row.scrollLeft = position;
+            const hold = ms => { resumeAt = performance.now() + ms; };
+            const wrap = value => { if (half <= 0) return value; while (value >= half) value -= half; while (value < 0) value += half; return value; };
+            window.addEventListener('resize', () => { half = track.scrollWidth / 2; });
+            row.addEventListener('scroll', () => { if (!dragging && Math.abs(row.scrollLeft - position) > 3) { position = row.scrollLeft; hold(2500); } }, { passive: true });
+            row.addEventListener('touchstart', () => hold(3000), { passive: true });
+            row.addEventListener('wheel', () => hold(2500), { passive: true });
+            row.addEventListener('pointerdown', event => {
+                if (event.pointerType !== 'mouse' || event.button !== 0) return;
+                dragging = true; moved = false; startX = event.clientX; startPosition = row.scrollLeft;
+            });
+            window.addEventListener('pointermove', event => {
+                if (!dragging) return;
+                const delta = event.clientX - startX;
+                if (Math.abs(delta) > 5) { moved = true; row.classList.add('is-dragging'); }
+                position = wrap(startPosition - delta); row.scrollLeft = position; hold(2500);
+            });
+            window.addEventListener('pointerup', () => { if (!dragging) return; dragging = false; setTimeout(() => row.classList.remove('is-dragging'), 0); hold(2000); });
+            row.addEventListener('click', event => { if (moved) { event.preventDefault(); event.stopPropagation(); moved = false; } }, true);
+            row.addEventListener('focusin', () => hold(6000));
+            function frame(now) {
+                const delta = Math.min(64, now - last) / 1000;
+                last = now;
+                if (!dragging && now >= resumeAt && !motion.matches && half > 0) {
+                    position = wrap(position + direction * (half / duration) * delta);
+                    row.scrollLeft = position;
+                } else if (!dragging) {
+                    position = wrap(row.scrollLeft);
+                    if (Math.abs(position - row.scrollLeft) > 1) row.scrollLeft = position;
+                }
+                requestAnimationFrame(frame);
+            }
+            requestAnimationFrame(frame);
+        });
     }
 
     function init() {
         reveal();
         forms();
-        studio();
+        marquees();
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 }());

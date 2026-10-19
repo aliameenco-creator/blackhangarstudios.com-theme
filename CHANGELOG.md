@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.2
+
+- Header: floating rounded bar (logo left, menu right, cyan Contact pill, dark rounded dropdowns, underline on hover/current page; full-screen menu on phones). Styling only: menu items, links and logo unchanged.
+- Homepage: browser tab and search title from the original site ("Black Hangar Studios | UK's Best Film & TV Production Studio") and description when none is set; **Our Studio** button next to Portfolio opens the 360 studio tour on the Videos page (added when the page is shown, so the homepage saved in the Site Editor is not changed; replaces the 0.4.1 popup).
+- Homepage on phones: Portfolio and Our Studio buttons at normal size side by side; the "Welcome" studio photo shows the whole wide image instead of a tall crop. Desktop unchanged.
+- Production poster rows: "Pause moving posters" removed; rows keep moving and visitors can swipe, drag or scroll them (clicking a poster still opens it).
+- Videos page gallery: the studio video is shown as a wide tile.
+
+Validation: homepage text and sections identical to the live page except the Our Studio button; 22 PHP integration checks; 18 pages + homepage template valid in the block editor; Chromium checks for header, dropdowns, phone menu, poster drag/auto-scroll/click and layouts at 1920/768/390/360/320 px.
+
 ## 0.4.1
 
 Built on the live site's theme (the hand-made homepage, header and film studio design are kept exactly). Replaces the withdrawn 0.4.0.

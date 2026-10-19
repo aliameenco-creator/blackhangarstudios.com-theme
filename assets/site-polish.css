@@ -1,0 +1,56 @@
+/* Site-wide polish (0.4.2): floating header, poster rows you can scroll, homepage hero buttons and studio image on
+   phones. Styles only: menu items, links, logo and the saved homepage content are not changed. */
+
+/* Header: floating rounded bar ------------------------------------------------------------------------------------- */
+.wp-site-blocks > header.wp-block-template-part { position: sticky; top: 0; z-index: 100; padding: 12px clamp(12px, 3vw, 40px); background: transparent; border-bottom: 0 !important; pointer-events: none; }
+body.admin-bar .wp-site-blocks > header.wp-block-template-part { top: 32px; }
+@media (max-width: 782px) { body.admin-bar .wp-site-blocks > header.wp-block-template-part { top: 46px; } }
+@media (max-width: 600px) { body.admin-bar .wp-site-blocks > header.wp-block-template-part { top: 0; } }
+.wp-site-blocks > header .bh-header { pointer-events: auto; position: relative; max-width: 1320px; margin: 0 auto; padding: 8px 10px 8px 24px !important; flex-wrap: nowrap !important; align-items: center; gap: 24px; border-radius: 30px; background: rgba(18, 20, 22, .74); -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%); border: 1px solid rgba(255, 255, 255, .09); box-shadow: 0 18px 50px -28px rgba(0, 0, 0, .9); }
+.wp-site-blocks > header .bh-header .wp-block-site-logo img { width: auto !important; height: 44px; max-width: 170px; object-fit: contain; }
+.wp-site-blocks > header .bh-header .wp-block-navigation { gap: 6px; font-size: 15px; font-weight: 500; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__container { gap: 4px 26px; align-items: center; }
+.wp-site-blocks > header .bh-header .wp-block-navigation-item__content { position: relative; padding: 6px 0; color: #fff; text-decoration: none; transition: color .2s ease; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__container > .wp-block-navigation-item:hover > .wp-block-navigation-item__content::after,
+.wp-site-blocks > header .bh-header .wp-block-navigation__container > .current-menu-item > .wp-block-navigation-item__content::after { transform: scaleX(1); }
+.wp-site-blocks > header .bh-header .wp-block-navigation__submenu-icon { width: 10px; height: 10px; margin-left: 5px; opacity: .8; }
+/* Last item (Contact) as a pill button. */
+.wp-site-blocks > header .bh-header .wp-block-navigation__container > .wp-block-navigation-item:last-child > .wp-block-navigation-item__content { background: #65d5f0; color: #0b0e11; border-radius: 999px; padding: 12px 24px; transition: background .25s ease, transform .25s ease; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__container > .wp-block-navigation-item:last-child > .wp-block-navigation-item__content::after { display: none; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__container > .wp-block-navigation-item:last-child > .wp-block-navigation-item__content:hover { background: #9be4f6; transform: translateY(-1px); }
+/* Dropdowns: dark rounded panels. */
+.wp-site-blocks > header .bh-header .wp-block-navigation .wp-block-navigation__submenu-container { min-width: 230px !important; margin-top: 14px; padding: 10px !important; border-radius: 18px; border: 1px solid rgba(255, 255, 255, .1) !important; background: rgba(18, 20, 22, .96) !important; -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .9); }
+.wp-site-blocks > header .bh-header .wp-block-navigation .wp-block-navigation__submenu-container::before { content: ''; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__submenu-container .wp-block-navigation-item__content { display: block; padding: 8px 14px !important; border-radius: 10px; font-size: 15px; color: #e7eaec; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover { background: rgba(255, 255, 255, .06); color: #65d5f0; }
+/* Phones: menu button and full-screen menu. */
+.wp-site-blocks > header .bh-header .wp-block-navigation__responsive-container-open { color: #fff; padding: 10px; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__responsive-container.is-menu-open { background: #0b0e11 !important; color: #fff !important; padding: 28px 24px !important; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container { background: transparent !important; border: 0 !important; box-shadow: none; margin-top: 0; padding: 0 0 0 14px !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.wp-site-blocks > header .bh-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content { font-size: 20px; }
+@media (max-width: 600px) {
+    .wp-site-blocks > header.wp-block-template-part { padding: 8px 10px; }
+    .wp-site-blocks > header .bh-header { padding: 6px 6px 6px 16px !important; border-radius: 22px; -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(18, 20, 22, .97); }
+    .wp-site-blocks > header .bh-header .wp-block-site-logo img { height: 36px; }
+}
+
+/* Poster rows: no pause button; visitors can swipe, drag or scroll them while they keep moving (assets/inner-pages.js). */
+.bh-pause { display: none !important; }
+.bh-js-scroll { overflow-x: auto !important; overflow-y: hidden; scrollbar-width: none; cursor: grab; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+.bh-js-scroll::-webkit-scrollbar { display: none; }
+.bh-js-scroll.is-dragging { cursor: grabbing; user-select: none; }
+.bh-js-scroll.is-dragging a { pointer-events: none; }
+.bh-built .bh-js-scroll .bh-track, .bh-js-scroll .bh-track, .bh-js-scroll .bh-latest-track { animation: none !important; transform: none !important; }
+
+/* Homepage hero buttons on phones: natural size, side by side. */
+@media (max-width: 600px) {
+    .bh-built .hero .actions .wp-block-buttons { gap: 10px; }
+    .bh-built .hero .actions .wp-block-button { width: auto !important; flex: 0 0 auto; }
+    .bh-built .hero .actions .wp-block-button__link { width: auto !important; padding: 12px 20px !important; font-size: 14px !important; }
+}
+
+/* Homepage "Welcome" studio photo on phones and tablets: show the whole wide image instead of a tall crop. */
+@media (max-width: 900px) {
+    .bh-built .studio-image > .wp-block-image img, .bh-built .studio-image img { height: auto !important; aspect-ratio: auto !important; object-fit: contain !important; }
+}
