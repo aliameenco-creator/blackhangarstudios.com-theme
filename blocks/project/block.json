@@ -7,7 +7,6 @@
   "supports": {
     "html": false
   },
-  "attributes": {"titleSize": {"type": "number", "default": 64}},
   "usesContext": [
     "postId",
     "postType"

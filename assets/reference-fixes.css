@@ -17,7 +17,7 @@
 .wp-site-blocks .bh-project-poster { width:100%; max-width:none; }
 .wp-site-blocks .bh-project-poster img { display:block; width:100%; height:auto; max-height:none; object-fit:contain; }
 .wp-site-blocks .bh-project-layout h1 { margin:12px 0 24px !important}
-:where(.wp-site-blocks .bh-project-layout h1){ font-size:clamp(32px,5vw,var(--bh-project-title-size,64px)) ; line-height:1.15 }
+:where(.wp-site-blocks .bh-project-layout h1){ font-size:clamp(30px,3.2vw,48px) ; line-height:1.2 }
 .wp-site-blocks .bh-project-layout .bh-eyebrow { display:none; }
 .wp-site-blocks .bh-project-copy {}
 :where(.wp-site-blocks .bh-project-copy){ font-size:18px; font-weight:300; line-height:1.5}

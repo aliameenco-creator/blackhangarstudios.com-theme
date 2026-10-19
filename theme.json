@@ -1,255 +1,248 @@
 {
-  "$schema": "https://schemas.wp.org/wp/6.6/theme.json",
-  "version": 3,
-  "settings": {
-    "appearanceTools": true,
-    "layout": {
-      "contentSize": "1200px",
-      "wideSize": "1440px"
-    },
-    "color": {
-      "defaultPalette": false,
-      "palette": [
-        {
-          "slug": "ink",
-          "name": "Background",
-          "color": "#0b0e11"
-        },
-        {
-          "slug": "surface",
-          "name": "Surface",
-          "color": "#171d23"
-        },
-        {
-          "slug": "paper",
-          "name": "Text",
-          "color": "#f5f3ee"
-        },
-        {
-          "slug": "muted",
-          "name": "Muted text",
-          "color": "#b4bdc7"
-        },
-        {
-          "slug": "accent",
-          "name": "Accent blue",
-          "color": "#65d5f0"
-        },
-        {
-          "slug": "line",
-          "name": "Borders",
-          "color": "#39434e"
-        }
-      ]
-    },
-    "typography": {
-      "fontFamilies": [
-        {
-          "slug": "heading",
-          "name": "Barlow Condensed",
-          "fontFamily": "\"Barlow Condensed\", Impact, sans-serif",
-          "fontFace": [
-            {
-              "fontFamily": "Barlow Condensed",
-              "fontWeight": "600",
-              "fontStyle": "normal",
-              "fontDisplay": "swap",
-              "src": [
-                "file:./assets/fonts/BarlowCondensed-SemiBold.ttf"
-              ]
-            }
-          ]
-        },
-        {
-          "slug": "body",
-          "name": "Inter",
-          "fontFamily": "Inter, system-ui, sans-serif",
-          "fontFace": [
-            {
-              "fontFamily": "Inter",
-              "fontWeight": "100 900",
-              "fontStyle": "normal",
-              "fontDisplay": "swap",
-              "src": [
-                "file:./assets/fonts/Inter.ttf"
-              ]
-            }
-          ]
-        }
-      ],
-      "fluid": true,
-      "fontSizes": [
-        {
-          "slug": "small",
-          "name": "Small",
-          "size": "14px"
-        },
-        {
-          "slug": "medium",
-          "name": "Body",
-          "size": "17px"
-        },
-        {
-          "slug": "large",
-          "name": "Large",
-          "size": "32px"
-        },
-        {
-          "slug": "x-large",
-          "name": "Heading",
-          "size": "64px",
-          "fluid": {
-            "min": "40px",
-            "max": "64px"
-          }
-        }
-      ],
-      "customFontSize": true,
-      "fontStyle": true,
-      "fontWeight": true,
-      "letterSpacing": true,
-      "lineHeight": true,
-      "textTransform": true
-    },
-    "spacing": {
-      "units": [
-        "px",
-        "rem",
-        "%",
-        "vw",
-        "vh"
-      ]
-    }
-  },
-  "styles": {
-    "color": {
-      "background": "var:preset|color|ink",
-      "text": "var:preset|color|paper"
-    },
-    "typography": {
-      "fontFamily": "var:preset|font-family|body",
-      "fontSize": "17px",
-      "lineHeight": "1.65"
-    },
-    "spacing": {
-      "blockGap": "24px"
-    },
-    "elements": {
-      "heading": {
-        "typography": {
-          "fontFamily": "var:preset|font-family|heading",
-          "fontWeight": "600",
-          "lineHeight": "1.1"
-        }
-      },
-      "link": {
-        "color": {
-          "text": "var:preset|color|paper"
-        },
-        ":hover": {
-          "color": {
-            "text": "var:preset|color|accent"
-          }
-        }
-      },
-      "button": {
-        "color": {
-          "background": "var:preset|color|accent",
-          "text": "var:preset|color|ink"
-        },
-        "border": {
-          "radius": "0"
-        },
-        "spacing": {
-          "padding": {
-            "top": "16px",
-            "bottom": "16px",
-            "left": "26px",
-            "right": "26px"
-          }
-        },
-        "typography": {
-          "fontSize": "14px",
-          "fontWeight": "600"
-        }
-      }
-    }
-  },
-  "customTemplates": [
-    {
-      "name": "page-designed",
-      "title": "Black Hangar designed page (full width)",
-      "postTypes": [
-        "page"
-      ]
-    },
-    {
-      "name": "film-studio",
-      "title": "Film studio",
-      "postTypes": [
-        "page"
-      ]
-    },
-    {
-      "name": "videos",
-      "title": "Videos",
-      "postTypes": [
-        "page"
-      ]
-    },
-    {
-      "name": "services",
-      "title": "Services",
-      "postTypes": [
-        "page"
-      ]
-    },
-    {
-      "name": "portfolio",
-      "title": "Portfolio index",
-      "postTypes": [
-        "page"
-      ]
-    },
-    {
-      "name": "about",
-      "title": "About us",
-      "postTypes": [
-        "page"
-      ]
-    },
-    {
-      "name": "contact",
-      "title": "Contact",
-      "postTypes": [
-        "page"
-      ]
-    },
-    {
-      "name": "news",
-      "title": "News listing",
-      "postTypes": [
-        "page"
-      ]
-    },
-    {
-      "name": "legal-faq",
-      "title": "FAQ and legal pages",
-      "postTypes": [
-        "page"
-      ]
-    }
-  ],
-  "templateParts": [
-    {
-      "name": "header",
-      "title": "Header",
-      "area": "header"
-    },
-    {
-      "name": "footer",
-      "title": "Footer",
-      "area": "footer"
-    }
-  ]
+	"$schema": "https://schemas.wp.org/wp/7.1/theme.json",
+	"customTemplates": [
+		{
+			"name": "film-studio",
+			"postTypes": [
+				"page"
+			],
+			"title": "Film studio"
+		},
+		{
+			"name": "videos",
+			"postTypes": [
+				"page"
+			],
+			"title": "Videos"
+		},
+		{
+			"name": "services",
+			"postTypes": [
+				"page"
+			],
+			"title": "Services"
+		},
+		{
+			"name": "portfolio",
+			"postTypes": [
+				"page"
+			],
+			"title": "Portfolio index"
+		},
+		{
+			"name": "about",
+			"postTypes": [
+				"page"
+			],
+			"title": "About us"
+		},
+		{
+			"name": "contact",
+			"postTypes": [
+				"page"
+			],
+			"title": "Contact"
+		},
+		{
+			"name": "news",
+			"postTypes": [
+				"page"
+			],
+			"title": "News listing"
+		},
+		{
+			"name": "legal-faq",
+			"postTypes": [
+				"page"
+			],
+			"title": "FAQ and legal pages"
+		}
+	],
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"defaultPalette": false,
+			"palette": [
+				{
+					"color": "#0b0e11",
+					"name": "Background",
+					"slug": "ink"
+				},
+				{
+					"color": "#171d23",
+					"name": "Surface",
+					"slug": "surface"
+				},
+				{
+					"color": "#f5f3ee",
+					"name": "Text",
+					"slug": "paper"
+				},
+				{
+					"color": "#b4bdc7",
+					"name": "Muted text",
+					"slug": "muted"
+				},
+				{
+					"color": "#65d5f0",
+					"name": "Accent blue",
+					"slug": "accent"
+				},
+				{
+					"color": "#39434e",
+					"name": "Borders",
+					"slug": "line"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "1200px",
+			"wideSize": "1440px"
+		},
+		"spacing": {
+			"units": [
+				"px",
+				"rem",
+				"%",
+				"vw",
+				"vh"
+			]
+		},
+		"typography": {
+			"customFontSize": true,
+			"fluid": true,
+			"fontFamilies": [
+				{
+					"fontFace": [
+						{
+							"fontDisplay": "swap",
+							"fontFamily": "Barlow Condensed",
+							"fontStyle": "normal",
+							"fontWeight": "600",
+							"src": [
+								"file:./assets/fonts/BarlowCondensed-SemiBold.ttf"
+							]
+						}
+					],
+					"fontFamily": "\"Barlow Condensed\", Impact, sans-serif",
+					"name": "Barlow Condensed",
+					"slug": "heading"
+				},
+				{
+					"fontFace": [
+						{
+							"fontDisplay": "swap",
+							"fontFamily": "Inter",
+							"fontStyle": "normal",
+							"fontWeight": "100 900",
+							"src": [
+								"file:./assets/fonts/Inter.ttf"
+							]
+						}
+					],
+					"fontFamily": "Inter, system-ui, sans-serif",
+					"name": "Inter",
+					"slug": "body"
+				}
+			],
+			"fontSizes": [
+				{
+					"name": "Small",
+					"size": "14px",
+					"slug": "small"
+				},
+				{
+					"name": "Body",
+					"size": "17px",
+					"slug": "medium"
+				},
+				{
+					"name": "Large",
+					"size": "32px",
+					"slug": "large"
+				},
+				{
+					"fluid": {
+						"max": "64px",
+						"min": "40px"
+					},
+					"name": "Heading",
+					"size": "64px",
+					"slug": "x-large"
+				}
+			],
+			"fontStyle": true,
+			"fontWeight": true,
+			"letterSpacing": true,
+			"textTransform": true
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--ink)",
+			"text": "var(--wp--preset--color--paper)"
+		},
+		"css": "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');\n\n/* ========================================\n   GLOBAL TYPOGRAPHY\n   ======================================== */\n\n.wp-site-blocks {\n  --wp--preset--font-family--heading: 'Poppins', sans-serif;\n  --wp--preset--font-family--body: 'Poppins', sans-serif;\n  font-family: 'Poppins', sans-serif !important;\n  font-weight: 400;\n  background: #101010;\n  color: #fff;\n}\n\n.wp-site-blocks :is(\n  h1, h2, h3, h4, h5, h6,\n  .wp-block-post-title,\n  .bh-brand\n) {\n  font-family: 'Poppins', sans-serif !important;\n  font-weight: 500 !important;\n  letter-spacing: normal !important;\n  text-transform: none !important;\n}\n\n.wp-site-blocks :is(\n  p, li, .wp-block-navigation,\n  button, .wp-element-button\n) {\n  font-family: 'Poppins', sans-serif;\n}\n\n.wp-site-blocks .bh-section h2 {\n  font-size: clamp(28px, 3vw, 44px);\n  line-height: 1.25;\n}\n\n/* ========================================\n   HEADER\n   ======================================== */\n\n.bh-header {\n  gap: 24px;\n  flex-wrap: nowrap !important;\n}\n\n.bh-header > .wp-block-group {\n  min-width: 0;\n  flex: 1;\n}\n\n.bh-header .wp-block-site-title {\n  min-width: 0;\n  overflow-wrap: anywhere;\n  font-size: clamp(18px, 2vw, 26px);\n}\n\n.bh-header .wp-block-site-logo,\n.bh-header .wp-block-navigation {\n  flex-shrink: 0;\n}\n\n.wp-site-blocks .bh-header .wp-block-navigation {\n  font-size: 14px;\n  font-weight: 400;\n}\n\n.bh-header .wp-block-navigation__responsive-container-open {\n  min-width: 44px;\n  min-height: 44px;\n  align-items: center;\n  justify-content: center;\n}\n\n@media (min-width: 1101px) {\n  .wp-site-blocks .bh-header .wp-block-navigation__container {\n    gap: clamp(18px, 3vw, 56px);\n  }\n}\n\n@media (max-width: 1100px) {\n  .bh-header .wp-block-navigation__responsive-container-open:not(.always-shown) {\n    display: flex;\n  }\n\n  .bh-header .wp-block-navigation__responsive-container:not(.is-menu-open) {\n    display: none !important;\n  }\n}\n\n/* MOBILE MENU */\n\n.bh-header .wp-block-navigation__responsive-container.is-menu-open {\n  background: #101010 !important;\n  color: #fff !important;\n  padding: 80px 24px 32px !important;\n  overflow-y: auto;\n}\n\n.bh-header .is-menu-open .wp-block-navigation__responsive-container-content {\n  align-items: stretch !important;\n  padding-top: 0 !important;\n}\n\n.bh-header .is-menu-open .wp-block-navigation__container {\n  width: 100%;\n  align-items: stretch !important;\n  gap: 8px !important;\n}\n\n.bh-header .is-menu-open .wp-block-navigation-item {\n  width: 100%;\n  align-items: flex-start !important;\n}\n\n.bh-header .is-menu-open .wp-block-navigation-item__content {\n  display: block;\n  padding: 10px 0;\n  font-size: 18px;\n  line-height: 1.4;\n  text-align: left;\n  color: inherit;\n}\n\n.bh-header .is-menu-open .wp-block-navigation__submenu-container {\n  position: static !important;\n  width: 100%;\n  min-width: 0 !important;\n  background: transparent !important;\n  border: 0 !important;\n  padding: 0 0 8px 18px !important;\n  gap: 0 !important;\n}\n\n.bh-header .is-menu-open .wp-block-navigation__submenu-container\n.wp-block-navigation-item__content {\n  font-size: 15px;\n  color: #b4bdc7;\n  padding: 8px 0;\n}\n\n.bh-header .is-menu-open .wp-block-navigation__responsive-container-close {\n  position: fixed !important;\n  top: 24px;\n  right: 24px;\n  width: 44px;\n  height: 44px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\nbody.admin-bar .bh-header .is-menu-open\n.wp-block-navigation__responsive-container-close {\n  top: 64px;\n}\n\n/* ========================================\n   PRODUCTION PAGE\n   ======================================== */\n\n.wp-site-blocks .bh-project-layout {\n  display: grid;\n  max-width: 860px !important;\n  margin-inline: auto;\n  grid-template-columns: minmax(0, 386px) minmax(0, 1fr) !important;\n  gap: 44px !important;\n  align-items: start;\n}\n\n.wp-site-blocks .bh-project-poster {\n  width: 100%;\n  max-width: none;\n}\n\n.wp-site-blocks .bh-project-poster img {\n  display: block;\n  width: 100%;\n  height: auto;\n  max-height: none;\n  object-fit: contain;\n}\n\nbody .bh-project-layout h1,\nbody .bh-trailer h2 {\n  font-family: 'Poppins', sans-serif !important;\n  font-weight: 500 !important;\n  letter-spacing: normal !important;\n  text-transform: none !important;\n}\n\n.wp-site-blocks .bh-project-layout h1 {\n  font-size: clamp(30px, 3.2vw, 48px) !important;\n  line-height: 1.2 !important;\n  margin: 12px 0 24px !important;\n  overflow-wrap: anywhere;\n}\n\nbody .bh-project-layout .bh-eyebrow {\n  display: none !important;\n}\n\n.wp-site-blocks .bh-project-copy {\n  font-size: 18px;\n  overflow-wrap: anywhere;\n}\n\nbody .bh-project-copy,\nbody .bh-project-copy p,\nbody .bh-project-copy li {\n  font-family: 'Poppins', sans-serif !important;\n  font-weight: 300 !important;\n  line-height: 1.6 !important;\n}\n\n.wp-site-blocks .bh-project-copy p {\n  margin-block: 0 28px;\n}\n\n/* TRAILER */\n\n.wp-site-blocks .bh-trailer {\n  max-width: 930px;\n  margin: 76px auto 0;\n}\n\n.wp-site-blocks .bh-trailer h2 {\n  font-size: clamp(28px, 3.2vw, 46px) !important;\n  line-height: 1.2 !important;\n  text-align: center;\n  margin: 0 0 30px;\n}\n\n.wp-site-blocks .bh-trailer .bh-video {\n  max-width: 930px;\n  margin: 0 auto;\n}\n\n.bh-video iframe {\n  display: block;\n  width: 100%;\n  aspect-ratio: 16 / 9;\n  height: auto;\n  border: 0;\n  background: #171d23;\n}\n\n/* ========================================\n   GENERAL CONTENT AND LEGAL PAGES\n   ======================================== */\n\n.wp-site-blocks .bh-prose {\n  max-width: 960px !important;\n  margin-inline: auto;\n}\n\n.wp-site-blocks .bh-prose h1 {\n  font-size: clamp(32px, 4vw, 52px) !important;\n  line-height: 1.2;\n  overflow-wrap: anywhere;\n}\n\n.bh-prose .wp-block-post-content {\n  line-height: 1.75;\n  overflow-wrap: anywhere;\n}\n\n.wp-site-blocks .bh-prose .wp-block-post-content h2 {\n  font-size: clamp(27px, 3vw, 38px);\n  line-height: 1.25;\n  margin-top: 1.5em;\n}\n\n.wp-site-blocks .bh-prose .wp-block-post-content h3 {\n  font-size: clamp(23px, 2.5vw, 30px);\n  line-height: 1.3;\n}\n\n.bh-prose .wp-block-post-content :is(img, video) {\n  max-width: 100%;\n  height: auto;\n}\n\n.bh-prose .wp-block-post-content iframe {\n  max-width: 100%;\n}\n\n/* ========================================\n   BLOG / NEWS LISTING\n   ======================================== */\n\n.wp-site-blocks .bh-news {\n  max-width: 1280px !important;\n  margin-inline: auto;\n}\n\n.wp-site-blocks .bh-news h1 {\n  font-size: clamp(38px, 5vw, 64px);\n  line-height: 1.15;\n  margin: 16px 0;\n}\n\n.bh-news-intro {\n  color: #b4bdc7;\n  max-width: 600px;\n  margin-left: 0 !important;\n  margin-right: auto !important;\n  margin-bottom: 40px;\n}\n\n.bh-news .wp-block-post-template {\n  display: grid !important;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 28px;\n}\n\n.bh-news .wp-block-post {\n  min-width: 0;\n  background: #171d23;\n  border: 1px solid #39434e;\n  padding: 0 24px 24px;\n  border-radius: 8px;\n  overflow: hidden;\n}\n\n.bh-news .wp-block-post-featured-image {\n  margin: 0 -24px 24px;\n}\n\n.bh-news .wp-block-post-featured-image img {\n  display: block;\n  width: 100%;\n  aspect-ratio: 16 / 9;\n  object-fit: cover;\n}\n\n.wp-site-blocks .bh-news .wp-block-post-title {\n  font-size: clamp(23px, 2vw, 28px);\n  line-height: 1.25;\n  margin: 16px 0;\n  overflow-wrap: anywhere;\n}\n\n.bh-news .wp-block-post-title a {\n  text-decoration: none;\n}\n\n.bh-news .wp-block-post-title a:hover {\n  color: #65d5f0;\n}\n\n.bh-news .wp-block-post-excerpt {\n  font-size: 15px;\n  line-height: 1.7;\n  color: #b4bdc7;\n}\n\n.bh-news .wp-block-post-excerpt__more-link {\n  color: #65d5f0;\n  display: inline-block;\n  padding: 10px 0;\n}\n\n.bh-news .wp-block-query-pagination {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 20px;\n  margin-top: 36px;\n}\n\n.bh-news .wp-block-query-pagination a {\n  display: inline-block;\n  padding: 10px;\n}\n\n/* AUTHOR AND DATE */\n\n.bh-story-meta {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 8px 20px;\n  color: #b4bdc7;\n  font-size: 13px;\n  margin-block: 16px 24px;\n}\n\n.bh-story-meta > * {\n  margin: 0 !important;\n}\n\n.bh-story-meta .wp-block-post-author-name::before {\n  content: \"By \";\n}\n\n.bh-news .wp-block-post-date,\n.bh-news .wp-block-post-author-name {\n  color: #b4bdc7;\n  font-size: 13px;\n}\n\n/* INDIVIDUAL ARTICLE */\n\n.wp-site-blocks .bh-article {\n  max-width: 1000px !important;\n  padding-top: 56px;\n}\n\n.bh-article-header {\n  max-width: 800px;\n  margin-inline: auto;\n}\n\n.wp-site-blocks .bh-article h1 {\n  font-size: clamp(32px, 4vw, 52px) !important;\n  line-height: 1.2;\n  margin: 16px 0 24px;\n}\n\n.bh-article-image {\n  margin: 32px 0 48px;\n}\n\n.bh-article-image img {\n  display: block;\n  width: 100%;\n  object-fit: cover;\n  border-radius: 8px;\n}\n\n.bh-article .wp-block-post-content {\n  max-width: 740px;\n  margin-inline: auto;\n  font-size: 17px;\n  line-height: 1.8;\n  overflow-wrap: anywhere;\n}\n\n.bh-article .wp-block-post-content > * {\n  max-width: 100%;\n}\n\n.bh-article .wp-block-post-content table {\n  display: block;\n  max-width: 100%;\n  overflow-x: auto;\n}\n\n.bh-article .wp-block-post-content blockquote {\n  border-left: 3px solid #65d5f0;\n  margin-inline: 0;\n  padding-left: 24px;\n  color: #b4bdc7;\n}\n\n/* AUTHOR BIOGRAPHY */\n\n.bh-author-bio {\n  max-width: 740px;\n  margin: 48px auto 0;\n  padding: 28px;\n  background: #171d23;\n  border: 1px solid #39434e;\n  border-radius: 8px;\n}\n\n.bh-author-bio .wp-block-post-author-name {\n  font-size: 22px;\n  margin: 12px 0;\n}\n\n.bh-author-bio .wp-block-post-author-biography {\n  color: #b4bdc7;\n  line-height: 1.7;\n}\n\n/* PREVIOUS / NEXT ARTICLE */\n\n.bh-story-navigation {\n  max-width: 740px;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 24px;\n  margin: 32px auto 0;\n  padding-top: 24px;\n  border-top: 1px solid #39434e;\n  overflow-wrap: anywhere;\n}\n\n.bh-story-navigation > * {\n  margin: 0;\n}\n\n.bh-story-navigation .post-navigation-link-next {\n  text-align: right;\n}\n\n/* ========================================\n   HOMEPAGE\n   ======================================== */\n\n.wp-site-blocks .bh-home-refresh {\n  max-width: none !important;\n  background: #101010;\n  color: #fff;\n}\n\n.bh-home-refresh > * {\n  margin-block-start: 0;\n}\n\n/* VIDEO / IMAGE HERO */\n\n.wp-site-blocks .bh-home-refresh .bh-home-video {\n  width: 100%;\n  max-width: none !important;\n  padding: clamp(32px, 7vw, 110px);\n  min-height: 640px;\n}\n\n.bh-home-video .wp-block-cover__inner-container {\n  width: 100%;\n  max-width: 1240px;\n  margin-inline: auto;\n}\n\n.bh-home-video .wp-block-cover__video-background,\n.bh-home-video .wp-block-cover__image-background {\n  object-fit: cover;\n  object-position: center;\n}\n\n.bh-home-hero-copy {\n  max-width: 700px;\n}\n\n.wp-site-blocks .bh-home-refresh .bh-home-hero-copy h1 {\n  font-family: 'Poppins', sans-serif !important;\n  font-weight: 500 !important;\n  line-height: 1.08 !important;\n  letter-spacing: -0.025em !important;\n  margin: 20px 0 28px;\n}\n\n.bh-home-hero-copy > p:not(.bh-eyebrow) {\n  max-width: 580px;\n  font-size: 17px;\n  line-height: 1.75;\n  margin-bottom: 28px;\n}\n\n.bh-home-refresh .bh-eyebrow {\n  color: #65d5f0;\n  font-size: 12px;\n  letter-spacing: 0.15em;\n  text-transform: uppercase;\n}\n\n.wp-site-blocks .bh-home-refresh h2 {\n  font-family: 'Poppins', sans-serif !important;\n  font-size: clamp(30px, 3.5vw, 48px);\n  font-weight: 500 !important;\n  line-height: 1.2;\n}\n\n/* PRODUCTION ROW SECTION */\n\n.bh-home-productions {\n  padding: 64px 0;\n  overflow: hidden;\n}\n\n.bh-home-productions > p,\n.bh-home-productions > h2 {\n  text-align: center;\n  padding-inline: 20px;\n}\n\n.bh-home-productions > .wp-block-buttons {\n  padding-inline: 20px;\n}\n\n.bh-home-refresh .bh-marquee {\n  padding: 24px 0 32px;\n}\n\n/* REMOVE PAUSE BUTTON ON HOMEPAGE */\n\n.bh-home-refresh .bh-pause {\n  display: none !important;\n}\n\n/* FASTER CONTINUOUS MOTION */\n\n@keyframes bh-home-scroll {\n  from {\n    transform: translateX(0);\n  }\n  to {\n    transform: translateX(-50%);\n  }\n}\n\n.bh-home-refresh .bh-track {\n  display: flex;\n  width: max-content;\n  animation: bh-home-scroll 28s linear infinite !important;\n  animation-play-state: running !important;\n}\n\n/* SECOND ROW MOVES THE OTHER WAY */\n\n.bh-home-refresh .bh-reverse .bh-track {\n  animation-direction: reverse !important;\n}\n\n/* KEEP MOVING ON HOVER AND FOCUS */\n\n.bh-home-refresh .bh-row:hover .bh-track,\n.bh-home-refresh .bh-row:focus-within .bh-track,\n.bh-home-refresh .is-paused .bh-track {\n  animation-play-state: running !important;\n}\n\n.bh-home-refresh .bh-row {\n  overflow: hidden;\n  margin-bottom: 28px;\n}\n\n.bh-home-refresh .bh-set {\n  display: flex;\n  gap: 20px;\n  padding-right: 20px;\n}\n\n.bh-home-refresh .bh-card {\n  width: 230px;\n  flex: 0 0 230px;\n}\n\n.wp-site-blocks .bh-home-refresh .bh-card h3 {\n  font-size: 18px;\n  font-weight: 400 !important;\n  line-height: 1.35;\n}\n\n.bh-home-refresh .bh-card p {\n  font-size: 12px;\n  color: #b4bdc7;\n}\n\n/* STUDIO INTRODUCTION */\n\n.bh-home-intro {\n  max-width: 1000px;\n  margin-inline: auto;\n  padding: 72px 28px;\n}\n\n.bh-home-intro > p:not(.bh-eyebrow) {\n  max-width: 760px;\n  font-size: 17px;\n  line-height: 1.8;\n  color: #d4d4d4;\n}\n\n.bh-home-intro .wp-block-buttons {\n  margin-top: 28px;\n}\n\n/* CONTACT SECTION */\n\n.bh-home-contact {\n  padding: 72px 24px;\n  background: #171d23;\n  text-align: center;\n}\n\n.bh-home-contact p {\n  color: #b4bdc7;\n  margin-bottom: 28px;\n}\n\n.bh-home-refresh .wp-block-button__link {\n  padding: 14px 24px;\n  font-size: 14px;\n  font-weight: 500;\n  border-radius: 3px;\n}\n\n/* ========================================\n   TABLET\n   ======================================== */\n\n@media (max-width: 1000px) {\n  .bh-news .wp-block-post-template {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n}\n\n/* ========================================\n   MOBILE\n   ======================================== */\n\n@media (max-width: 700px) {\n  .bh-header {\n    padding: 16px 20px;\n    gap: 16px !important;\n  }\n\n  .bh-header .bh-brand {\n    font-size: 18px;\n    line-height: 1.2;\n  }\n\n  .bh-section {\n    padding: 36px 20px;\n  }\n\n  .wp-site-blocks .bh-project-layout {\n    grid-template-columns: 1fr !important;\n    gap: 28px !important;\n  }\n\n  .wp-site-blocks .bh-project-poster {\n    width: min(100%, 386px);\n    margin-inline: auto;\n  }\n\n  .wp-site-blocks .bh-project-copy {\n    font-size: 16px;\n  }\n\n  .wp-site-blocks .bh-trailer {\n    margin-top: 40px;\n  }\n\n  .wp-site-blocks .bh-home-refresh .bh-home-video {\n    min-height: 560px !important;\n    padding: 64px 24px;\n  }\n\n  .bh-home-hero-copy > p:not(.bh-eyebrow) {\n    font-size: 16px;\n    line-height: 1.65;\n  }\n\n  .bh-home-productions {\n    padding: 40px 0;\n  }\n\n  .bh-home-refresh .bh-card {\n    width: 170px;\n    flex-basis: 170px;\n  }\n\n  .wp-site-blocks .bh-home-refresh .bh-card h3 {\n    font-size: 16px;\n  }\n\n  .bh-home-intro,\n  .bh-home-contact {\n    padding: 48px 24px;\n  }\n}\n\n@media (max-width: 600px) {\n  .bh-news .wp-block-post-template {\n    grid-template-columns: 1fr;\n    gap: 24px;\n  }\n\n  .wp-site-blocks .bh-article {\n    padding-top: 32px;\n  }\n\n  .bh-article .wp-block-post-content {\n    font-size: 16px;\n    line-height: 1.75;\n  }\n\n  .bh-article-image {\n    margin: 24px 0 32px;\n  }\n\n  .bh-author-bio {\n    padding: 20px;\n  }\n\n  .bh-story-navigation {\n    grid-template-columns: 1fr;\n  }\n\n  .bh-story-navigation .post-navigation-link-next {\n    text-align: left;\n  }\n}\n\n/* ========================================\n   REDUCED-MOTION PREFERENCE\n   ======================================== */\n\n@media (prefers-reduced-motion: reduce) {\n  .bh-home-refresh .bh-track {\n    animation: none !important;\n  }\n\n  .bh-home-refresh .bh-clone {\n    display: none;\n  }\n\n  .bh-home-refresh .bh-row {\n    overflow-x: auto;\n  }\n}\n",
+		"elements": {
+			"button": {
+				"border": {
+					"radius": "0"
+				},
+				"color": {
+					"background": "var(--wp--preset--color--accent)",
+					"text": "var(--wp--preset--color--ink)"
+				},
+				"spacing": {
+					"padding": {
+						"bottom": "16px",
+						"left": "26px",
+						"right": "26px",
+						"top": "16px"
+					}
+				},
+				"typography": {
+					"fontSize": "14px",
+					"fontWeight": "600"
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "600",
+					"lineHeight": "1.1"
+				}
+			},
+			"link": {
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--accent)"
+					}
+				},
+				"color": {
+					"text": "var(--wp--preset--color--paper)"
+				}
+			}
+		},
+		"spacing": {
+			"blockGap": "24px"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--body)",
+			"fontSize": "17px",
+			"lineHeight": "1.65"
+		}
+	},
+	"templateParts": [
+		{
+			"area": "header",
+			"name": "header",
+			"title": "Header"
+		},
+		{
+			"area": "footer",
+			"name": "footer",
+			"title": "Footer"
+		}
+	],
+	"version": 3
 }
