@@ -1,0 +1,335 @@
+/* Designed inner pages (Appearance -> Black Hangar Pages). Everything is scoped to .bh-page, the group that wraps each
+   page's editable blocks, so the homepage and other templates are unaffected. Builds on built-pages.css (.bh-built). */
+.wp-site-blocks > main.bh-page-main { max-width: none !important; width: 100%; margin: 0 !important; padding: 0 !important; }
+.bh-page-main > .wp-block-post-content { max-width: none !important; margin: 0 !important; }
+.bh-page-main > .wp-block-post-content > * { max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; }
+.bh-built.bh-page { --cyan: #00b5ed; --ink: #101010; --muted: #a9b0b5; --panel: #161a1d; --line: #2c3338; background: var(--ink); color: #fff; overflow: clip; }
+.bh-page > * + * { margin-block-start: 0 !important; }
+.bh-page a:not(.wp-block-button__link) { color: inherit; }
+.bh-page p a:not(.text-link):not(.wp-block-button__link) { color: #fff; text-decoration: underline; text-decoration-color: rgba(0, 181, 237, .7); text-underline-offset: 4px; transition: color .2s ease, text-decoration-color .2s ease; }
+.bh-page p a:not(.text-link):not(.wp-block-button__link):hover { color: var(--cyan); text-decoration-color: var(--cyan); }
+.bh-page .section { padding: 96px 8%; }
+.bh-page .section + .section { padding-top: 24px; }
+.bh-page img { max-width: 100%; }
+.bh-page strong, .bh-page b { font-weight: 500; color: #fff; }
+
+/* Buttons ------------------------------------------------------------------------------------------------------ */
+.bh-page .wp-block-buttons { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+.bh-page .wp-block-button .wp-block-button__link { border-radius: 10px !important; min-height: 52px; padding: 14px 26px !important; display: inline-flex; align-items: center; gap: 12px; font-size: 14px !important; font-weight: 500; letter-spacing: .02em; text-decoration: none; transition: transform .25s ease, background .25s ease, box-shadow .25s ease, color .25s ease; }
+.bh-page .bh-design-button .wp-block-button__link { background: var(--cyan) !important; color: #06151c !important; box-shadow: 0 10px 30px -12px rgba(0, 181, 237, .65); }
+.bh-page .bh-design-button .wp-block-button__link::after { content: '→'; transition: transform .25s ease; }
+.bh-page .bh-design-button .wp-block-button__link:hover { background: #4fd0f7 !important; transform: translateY(-2px); box-shadow: 0 16px 36px -14px rgba(0, 181, 237, .8); }
+.bh-page .bh-design-button .wp-block-button__link:hover::after { transform: translateX(4px); }
+.bh-page .bh-outline-button .wp-block-button__link { background: transparent !important; color: #fff !important; border: 1px solid rgba(255, 255, 255, .35); }
+.bh-page .bh-outline-button .wp-block-button__link:hover { border-color: var(--cyan); color: var(--cyan) !important; transform: translateY(-2px); }
+.bh-page .text-link { display: inline-block; border-bottom: 1px solid #4b555b; padding-bottom: 6px; font-size: 14px; text-decoration: none; transition: border-color .25s ease, color .25s ease; }
+.bh-page .text-link:hover { color: var(--cyan); border-color: var(--cyan); }
+.bh-page .eyebrow { color: var(--cyan); text-transform: uppercase; font-size: 12px; font-weight: 500; letter-spacing: .16em; margin: 0 0 18px; }
+
+/* Hero (cover with photo) ------------------------------------------------------------------------------------------ */
+.bh-page .page-hero { min-height: min(78vh, 760px) !important; padding: 120px 8% 90px !important; align-items: flex-end !important; overflow: hidden; }
+.bh-page .page-hero .wp-block-cover__image-background { animation: bh-hero-zoom 14s ease-out both; }
+@keyframes bh-hero-zoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+.bh-page .page-hero::before { background: linear-gradient(90deg, rgba(0, 0, 0, .86), rgba(0, 0, 0, .25) 70%), linear-gradient(0deg, #101010 2%, transparent 45%) !important; }
+.bh-page .page-hero .wp-block-cover__inner-container { max-width: 1240px; }
+.bh-page .page-hero h1, .bh-page .bh-intro h1 { white-space: normal !important; max-width: 16ch; font-size: clamp(40px, 5.4vw, 82px); line-height: 1.06; letter-spacing: -.035em; margin: 0; text-wrap: balance; }
+.bh-page .hero-desc { max-width: 640px; color: #d4d7d9; font-size: 17px; line-height: 1.75; margin: 26px 0 30px; }
+.bh-page .page-hero .hero-desc a { color: #fff; }
+.bh-page .page-hero > .wp-block-cover__inner-container > * { animation: bh-rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+.bh-page .page-hero > .wp-block-cover__inner-container > *:nth-child(2) { animation-delay: .08s; }
+.bh-page .page-hero > .wp-block-cover__inner-container > *:nth-child(3) { animation-delay: .16s; }
+.bh-page .page-hero > .wp-block-cover__inner-container > *:nth-child(4) { animation-delay: .24s; }
+@keyframes bh-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+/* Hero without photo ----------------------------------------------------------------------------------------------- */
+.bh-page .bh-intro { position: relative; isolation: isolate; padding: 150px 8% 96px; border-bottom: 1px solid var(--line); overflow: hidden; }
+.bh-page .bh-intro::before { content: ''; position: absolute; inset: 0; z-index: -2; background: radial-gradient(60% 90% at 85% 0%, rgba(0, 181, 237, .22), transparent 60%), radial-gradient(40% 60% at 0% 100%, rgba(0, 181, 237, .08), transparent 70%), #0d1013; }
+.bh-page .bh-intro::after { content: ''; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(180deg, #000 10%, transparent 95%); animation: bh-grid-drift 30s linear infinite; }
+@keyframes bh-grid-drift { to { background-position: 72px 72px; } }
+.bh-page .bh-intro-inner { max-width: 1240px; }
+.bh-page .bh-intro-inner > * { animation: bh-rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+.bh-page .bh-intro-inner > *:nth-child(2) { animation-delay: .08s; }
+.bh-page .bh-intro-inner > *:nth-child(3) { animation-delay: .16s; }
+
+/* Section heading -------------------------------------------------------------------------------------------------- */
+.bh-page .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 50px; margin-bottom: 48px; }
+.bh-page .section-head > p { color: var(--muted); max-width: 520px; margin: 0; }
+.bh-page h2 { font-size: clamp(32px, 3.6vw, 54px); line-height: 1.12; letter-spacing: -.03em; text-wrap: balance; }
+
+/* Image + copy split ----------------------------------------------------------------------------------------------- */
+.bh-page .bh-split { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 7vw, 110px); align-items: center; }
+.bh-page .bh-split.is-reversed > .bh-split-media { order: 2; }
+.bh-page .bh-split-media { position: relative; margin: 0; }
+.bh-page .bh-split-media::before { content: ''; position: absolute; inset: 22px -22px -22px 22px; border: 1px solid rgba(0, 181, 237, .45); border-radius: 14px; z-index: 0; transition: inset .5s ease; }
+.bh-page .bh-split.is-reversed .bh-split-media::before { inset: 22px 22px -22px -22px; }
+.bh-page .bh-split:hover .bh-split-media::before { inset: 12px -12px -12px 12px; }
+.bh-page .bh-split.is-reversed:hover .bh-split-media::before { inset: 12px 12px -12px -12px; }
+.bh-page .bh-split-media > .wp-block-image, .bh-page .bh-split-media > .wp-block-video { position: relative; z-index: 1; margin: 0; border-radius: 12px; overflow: hidden; background: #000; }
+.bh-page .bh-split-media .wp-block-image img { display: block; width: 100%; height: clamp(320px, 38vw, 560px) !important; object-fit: cover; transition: transform 1.2s cubic-bezier(.2, .7, .2, 1); }
+.bh-page .bh-split:hover .bh-split-media .wp-block-image img { transform: scale(1.04); }
+.bh-page .bh-split-media .wp-block-image.bh-inset { position: absolute; z-index: 2; width: 46%; right: -6%; bottom: -10%; border: 6px solid var(--ink); box-shadow: 0 30px 60px -20px #000; }
+.bh-page .bh-split-media .wp-block-image.bh-inset img { height: auto !important; aspect-ratio: 16 / 10; }
+.bh-page .bh-split-copy > p:not(.eyebrow):not(.bh-design-link) { color: #c6cbce; font-size: 16px; line-height: 1.85; font-weight: 300; }
+.bh-page .bh-split-copy h2 { margin-bottom: 26px; }
+.bh-page .bh-split-copy .bh-note { border-left: 2px solid var(--cyan); padding-left: 18px; color: #fff !important; }
+.bh-page .bh-video-split .bh-split-media video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+
+/* Stage hero (Film Studio, Jake Seal) ------------------------------------------------------------------------------ */
+.bh-page .stage-hero { border-bottom: 1px solid var(--line); }
+.bh-page .stage-hero .stage-heading h1 { font-size: clamp(40px, 4.4vw, 70px); line-height: 1.08; }
+.bh-page .stage-hero .stage-heading > * { animation: bh-rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+.bh-page .stage-hero .stage-heading > *:nth-child(2) { animation-delay: .08s; }
+.bh-page .stage-hero .stage-heading > *:nth-child(3) { animation-delay: .16s; }
+.bh-page .stage-hero .stage-heading > *:nth-child(4) { animation-delay: .24s; }
+.bh-page .stage-hero > .wp-block-image { overflow: hidden; }
+.bh-page .stage-hero > .wp-block-image img { animation: bh-hero-zoom 14s ease-out both; height: 100% !important; }
+.bh-page .bh-profile-hero > .wp-block-image img { object-position: center 20%; }
+.bh-page .bh-role { color: var(--cyan) !important; font-size: 15px; letter-spacing: .04em; margin: 22px 0 0 !important; }
+.bh-page .stage-heading .hero-desc { color: var(--muted); margin: 16px 0 0; }
+.bh-page .stage-heading .wp-block-buttons { margin-top: 28px; }
+
+/* Story panels / text cards ---------------------------------------------------------------------------------------- */
+.bh-page .facility-grid { display: block; border: 0; background: transparent; }
+.bh-page .story-panel { position: relative; border-radius: 14px; border: 1px solid var(--line); overflow: hidden; transition: border-color .4s ease, transform .4s ease; }
+.bh-page .story-panel:hover { border-color: rgba(0, 181, 237, .5); transform: translateY(-3px); }
+.bh-page .story-panel .story-copy p + p { margin-top: 18px; }
+.bh-page .story-panel .story-copy p a { color: #fff; }
+.bh-page .bh-single-panel .story-panel { margin: 0; }
+
+/* Cards grid (Production services, Covid) -------------------------------------------------------------------------- */
+.bh-page .bh-fcard-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.bh-page .bh-fcard-grid.is-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.bh-page .bh-fcard { position: relative; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: transform .45s cubic-bezier(.2, .7, .2, 1), border-color .45s ease, box-shadow .45s ease; }
+.bh-page .bh-fcard:hover { transform: translateY(-6px); border-color: rgba(0, 181, 237, .55); box-shadow: 0 30px 60px -30px rgba(0, 181, 237, .45); }
+.bh-page .bh-fcard-media { position: relative; margin: 0; overflow: hidden; }
+.bh-page .bh-fcard-media .wp-block-image { margin: 0; }
+.bh-page .bh-fcard-media img { display: block; width: 100%; aspect-ratio: 16 / 10; height: auto !important; object-fit: cover; transition: transform 1s cubic-bezier(.2, .7, .2, 1); }
+.bh-page .bh-fcard:hover .bh-fcard-media img { transform: scale(1.06); }
+.bh-page .bh-fcard-number { position: absolute; top: 16px; left: 16px; margin: 0 !important; background: rgba(10, 12, 14, .78); backdrop-filter: blur(6px); color: var(--cyan); border-radius: 999px; padding: 6px 14px; font-size: 12px; letter-spacing: .14em; }
+.bh-page .bh-fcard-body { padding: 30px 32px 34px; }
+.bh-page .bh-fcard-body::before { content: ''; display: block; width: 36px; height: 2px; background: var(--cyan); margin-bottom: 20px; transition: width .45s ease; }
+.bh-page .bh-fcard:hover .bh-fcard-body::before { width: 72px; }
+.bh-page .bh-fcard-title, .bh-page .bh-fcard h3 { font-size: clamp(24px, 2vw, 30px) !important; letter-spacing: -.02em; margin: 0 0 14px; }
+.bh-page .bh-fcard p:not(.number):not(.bh-fcard-number) { color: var(--muted); font-size: 15.5px; line-height: 1.8; margin: 0; }
+.bh-page .bh-text-card { padding: 34px 32px; }
+.bh-page .bh-text-card .number { margin: 0 0 22px; font-size: 13px; letter-spacing: .15em; }
+
+/* Stats ------------------------------------------------------------------------------------------------------------ */
+.bh-page .bh-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); padding: 0 8%; }
+.bh-page .bh-stat { padding: 42px 32px 40px 0; }
+.bh-page .bh-stat + .bh-stat { border-left: 1px solid var(--line); padding-left: 40px; }
+.bh-page .bh-stat-value { color: var(--cyan); font-size: clamp(38px, 4vw, 60px); font-weight: 500; letter-spacing: -.03em; line-height: 1; margin: 0 0 12px !important; font-variant-numeric: tabular-nums; }
+.bh-page .bh-stat-label { color: var(--muted); margin: 0 !important; font-size: 15px; }
+
+/* Logos (About) ---------------------------------------------------------------------------------------------------- */
+.bh-page .bh-logo-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+.bh-page .bh-logo-grid .wp-block-image { margin: 0; background: #fff; border-radius: 12px; aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; padding: 14px; transition: transform .35s ease, box-shadow .35s ease; }
+.bh-page .bh-logo-grid .wp-block-image:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 40px -20px rgba(0, 181, 237, .7); }
+.bh-page .bh-logo-grid img { width: 100%; height: 100% !important; object-fit: contain; }
+
+/* Company cards (On the Lot) --------------------------------------------------------------------------------------- */
+.bh-page .bh-company-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.bh-page .bh-company { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 28px; transition: transform .4s ease, border-color .4s ease; }
+.bh-page .bh-company:hover { transform: translateY(-6px); border-color: rgba(0, 181, 237, .55); }
+.bh-page .bh-company-logo { border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+.bh-page .bh-company-logo .wp-block-image { margin: 0; }
+.bh-page .bh-company-logo img { display: block; width: 100%; aspect-ratio: 1; height: auto !important; object-fit: cover; transition: transform .8s ease; }
+.bh-page .bh-company:hover .bh-company-logo img { transform: scale(1.05); }
+.bh-page .bh-company h3 { font-size: 24px; margin: 0 6px 12px; }
+.bh-page .bh-company p { color: var(--muted); margin: 0 6px 18px; font-size: 15px; line-height: 1.75; }
+
+/* Prose ------------------------------------------------------------------------------------------------------------ */
+.bh-page .bh-prose-inner { max-width: 820px; margin: 0 auto; }
+.bh-page .bh-prose-inner p:not(.eyebrow) { color: #cdd1d4; font-size: 17px; line-height: 1.9; font-weight: 300; }
+.bh-page .bh-prose-inner p:first-child:not(.eyebrow), .bh-page .bh-lead { color: #fff !important; font-size: clamp(19px, 1.7vw, 24px) !important; line-height: 1.65 !important; }
+
+/* Two images (Jake Seal) ------------------------------------------------------------------------------------------- */
+.bh-page .bh-media-pair { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; align-items: end; }
+.bh-page .bh-media-pair .wp-block-image { margin: 0; border-radius: 12px; overflow: hidden; }
+.bh-page .bh-media-pair .wp-block-image img { display: block; width: 100%; height: clamp(260px, 32vw, 520px) !important; object-fit: cover; transition: transform 1.2s ease; }
+.bh-page .bh-media-pair .wp-block-image:last-child { transform: translateY(48px); }
+.bh-page .bh-media-pair .wp-block-image:hover img { transform: scale(1.04); }
+
+/* Squadrons (Lasham) ----------------------------------------------------------------------------------------------- */
+.bh-page .bh-squadrons { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
+.bh-page .bh-squadron { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 24px 22px; transition: border-color .3s ease, transform .3s ease; }
+.bh-page .bh-squadron:hover { border-color: var(--cyan); transform: translateY(-4px); }
+.bh-page .bh-squadron-number { font-size: 40px; font-weight: 500; line-height: 1; letter-spacing: -.03em; color: #fff; margin: 0 !important; }
+.bh-page .bh-squadron-label { color: var(--cyan); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; margin: 6px 0 14px !important; }
+.bh-page .bh-squadron p:last-child { color: var(--muted); font-size: 14.5px; line-height: 1.65; margin: 0; }
+
+/* FAQ and accordions ----------------------------------------------------------------------------------------------- */
+.bh-page .faq details summary { font-size: 17px; font-weight: 500; transition: color .25s ease; }
+.bh-page .faq details summary:hover { color: var(--cyan); }
+.bh-page .faq details[open] summary { color: var(--cyan); }
+.bh-page .faq details > :not(summary) { animation: bh-rise .45s ease both; }
+.bh-page .bh-faq > div:first-child p:not(.eyebrow) { color: var(--muted); }
+.bh-page .bh-networks { display: grid; gap: 64px; }
+.bh-page .bh-network { display: grid; grid-template-columns: .8fr 1.4fr; gap: 60px; padding-top: 48px; border-top: 1px solid var(--line); }
+.bh-page .bh-network-head h2 { font-size: clamp(28px, 2.8vw, 42px); }
+.bh-page .bh-accordion details { border-bottom: 1px solid #3a3a3a; padding: 20px 0; }
+.bh-page .bh-accordion summary { cursor: pointer; }
+.bh-page .bh-count { display: inline-block; margin-left: 10px; background: rgba(0, 181, 237, .14); color: var(--cyan); border-radius: 999px; padding: 1px 10px; font-size: 12px; vertical-align: middle; }
+.bh-page .bh-accordion ul, .bh-page .bh-plain-list { margin: 16px 0 4px; padding-left: 20px; columns: 2; column-gap: 40px; color: var(--muted); font-size: 14.5px; line-height: 1.7; }
+.bh-page .bh-accordion li, .bh-page .bh-plain-list li { break-inside: avoid; margin-bottom: 10px; }
+.bh-page .bh-plain-list { margin-top: 0; }
+
+/* Festival months -------------------------------------------------------------------------------------------------- */
+.bh-page .bh-months { columns: 3 320px; column-gap: 24px; }
+.bh-page .bh-month { break-inside: avoid; margin: 0 0 24px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 28px 28px 18px; transition: border-color .35s ease; }
+.bh-page .bh-month:hover { border-color: rgba(0, 181, 237, .5); }
+.bh-page .bh-month-title { font-size: 26px !important; margin: 0 0 18px; display: flex; align-items: center; gap: 12px; }
+.bh-page .bh-month-title::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 6px rgba(0, 181, 237, .15); }
+.bh-page .bh-events { list-style: none; padding: 0; margin: 0; }
+.bh-page .bh-events li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.55; }
+.bh-page .bh-event-date { display: block; color: var(--cyan); font-size: 12px; letter-spacing: .06em; margin-bottom: 3px; }
+
+/* Videos ----------------------------------------------------------------------------------------------------------- */
+.bh-page .bh-video-row { display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
+.bh-page .bh-video-row.is-reversed { grid-template-columns: 1.5fr 1fr; }
+.bh-page .bh-video-copy h2 { font-size: clamp(28px, 3vw, 46px); }
+.bh-page .bh-video-frame { position: relative; border-radius: 14px; overflow: hidden; background: #000; border: 1px solid var(--line); box-shadow: 0 40px 80px -40px rgba(0, 181, 237, .35); }
+.bh-page .bh-video-frame .wp-block-video { margin: 0; }
+.bh-page .bh-video-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
+/* Letterboxed source videos: show the picture area only (bars are baked into the files). */
+.bh-page .wp-block-video.is-scope video { aspect-ratio: 2.4 / 1; }
+.bh-page .wp-block-video.is-wide video { aspect-ratio: 2 / 1; }
+.bh-page .bh-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #0b0d0f; }
+.bh-page .bh-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.bh-page .bh-tour-section .bh-embed { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16 / 8; }
+.bh-page .bh-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: clamp(180px, 18vw, 300px); gap: 14px; }
+.bh-page .bh-gallery > * { margin: 0 !important; border-radius: 12px; overflow: hidden; position: relative; }
+.bh-page .bh-gallery > *:first-child { grid-row: span 2; }
+.bh-page .bh-gallery img, .bh-page .bh-gallery video { display: block; width: 100%; height: 100% !important; object-fit: cover; transition: transform 1s cubic-bezier(.2, .7, .2, 1); }
+.bh-page .bh-gallery > .wp-block-image:hover img { transform: scale(1.06); }
+
+/* Contact ---------------------------------------------------------------------------------------------------------- */
+.bh-page .bh-contact-section { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(36px, 6vw, 90px); align-items: start; }
+.bh-page .bh-contact-info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.bh-page .bh-info-item { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px; transition: border-color .3s ease, transform .3s ease; }
+.bh-page .bh-info-item:hover { border-color: rgba(0, 181, 237, .5); transform: translateY(-3px); }
+.bh-page .bh-info-label { color: var(--cyan); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; margin: 0 0 12px !important; }
+.bh-page .bh-info-item p:last-child { margin: 0; line-height: 1.7; overflow-wrap: anywhere; }
+.bh-page .bh-social-links { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+.bh-page .bh-social-links a { text-decoration: none !important; font-size: 14px; }
+.bh-page .bh-contact-form { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: clamp(26px, 3vw, 44px); }
+.bh-page .bh-form-title { font-size: clamp(26px, 2.4vw, 36px) !important; margin-bottom: 26px; }
+.bh-page .bh-map-section { padding: 0 8% 96px; }
+.bh-page .bh-map-section .bh-embed { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 21 / 8; filter: grayscale(.4) contrast(1.05); }
+.bh-form .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.bh-form .field { display: flex; flex-direction: column; gap: 8px; }
+.bh-form .field.wide { grid-column: 1 / -1; }
+.bh-form label { font-size: 13px; color: #d0d3d5; letter-spacing: .02em; }
+.bh-form .req { color: var(--cyan, #00b5ed); }
+.bh-form input, .bh-form textarea { width: 100%; box-sizing: border-box; background: #0e1113; border: 1px solid #353d43; border-radius: 10px; color: #fff; padding: 14px 16px; font: inherit; font-size: 15px; transition: border-color .2s ease, box-shadow .2s ease; }
+.bh-form input:focus, .bh-form textarea:focus { outline: none; border-color: #00b5ed; box-shadow: 0 0 0 3px rgba(0, 181, 237, .2); }
+.bh-form [aria-invalid="true"] { border-color: #ff6b6b; }
+.bh-form .field-error { color: #ff8a8a; font-size: 13px; min-height: 0; }
+.bh-form .field-error:empty { display: none; }
+.bh-form .form-actions { margin-top: 22px; }
+.bh-form button { background: #00b5ed; color: #06151c; border: 0; border-radius: 10px; min-height: 52px; padding: 14px 30px; font: inherit; font-weight: 500; font-size: 15px; cursor: pointer; transition: transform .25s ease, background .25s ease; }
+.bh-form button:hover { background: #4fd0f7; transform: translateY(-2px); }
+.bh-form button[disabled] { opacity: .6; cursor: progress; }
+.bh-form .form-success { background: rgba(0, 181, 237, .12); border: 1px solid rgba(0, 181, 237, .5); color: #fff; padding: 14px 18px; border-radius: 10px; }
+.bh-form .form-error { background: rgba(255, 107, 107, .1); border: 1px solid rgba(255, 107, 107, .5); color: #fff; padding: 14px 18px; border-radius: 10px; }
+.bh-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Call to action --------------------------------------------------------------------------------------------------- */
+.bh-page .bh-cta { padding: 40px 8% 110px; }
+.bh-page .bh-cta-inner { position: relative; isolation: isolate; overflow: hidden; text-align: center; border-radius: 22px; padding: clamp(56px, 7vw, 100px) 8%; background: radial-gradient(80% 140% at 50% 0%, rgba(0, 181, 237, .28), transparent 60%), #14181b; border: 1px solid rgba(0, 181, 237, .25); }
+.bh-page .bh-cta-inner::before { content: ''; position: absolute; z-index: -1; width: 520px; height: 520px; border-radius: 50%; left: 50%; top: -260px; transform: translateX(-50%); background: conic-gradient(from 0deg, transparent, rgba(0, 181, 237, .35), transparent 40%); animation: bh-spin 12s linear infinite; filter: blur(30px); }
+@keyframes bh-spin { to { transform: translateX(-50%) rotate(360deg); } }
+.bh-page .bh-cta h2 { font-size: clamp(34px, 4.4vw, 64px); margin: 0 auto 18px; max-width: 18ch; }
+.bh-page .bh-cta p:not(.eyebrow) { color: #c8cdd0; max-width: 560px; margin: 0 auto 30px; }
+.bh-page .bh-cta .wp-block-buttons { justify-content: center; }
+
+/* Scroll reveal (assets/inner-pages.js adds .bh-reveal only when motion is allowed) --------------------------------- */
+.bh-page .bh-reveal { opacity: 0; transform: translateY(32px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--bh-delay, 0s); }
+.bh-page .bh-reveal.is-visible { opacity: 1; transform: none; }
+
+@media (max-width: 1100px) {
+    .bh-page .bh-logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .bh-page .bh-company-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bh-page .bh-fcard-grid.is-three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bh-page .bh-network { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 900px) {
+    .bh-page .section { padding: 64px 6%; }
+    .bh-page .page-hero { padding: 110px 6% 64px !important; min-height: 560px !important; }
+    .bh-page .bh-intro { padding: 110px 6% 64px; }
+    .bh-page .section-head { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .bh-page .bh-split, .bh-page .bh-video-row, .bh-page .bh-video-row.is-reversed, .bh-page .bh-contact-section { grid-template-columns: 1fr; }
+    .bh-page .bh-split.is-reversed > .bh-split-media { order: 0; }
+    .bh-page .bh-video-row.is-reversed > .bh-video-frame { order: 2; }
+    .bh-page .bh-split-media::before { inset: 14px -10px -14px 10px; }
+    .bh-page .bh-split.is-reversed .bh-split-media::before { inset: 14px 10px -14px -10px; }
+    .bh-page .bh-split-media .wp-block-image.bh-inset { right: 4%; bottom: -8%; width: 42%; }
+    .bh-page .bh-fcard-grid { grid-template-columns: 1fr; }
+    .bh-page .bh-stats { padding: 0 6%; }
+    .bh-page .bh-stat { padding: 30px 18px 28px 0; }
+    .bh-page .bh-stat + .bh-stat { padding-left: 20px; }
+    .bh-page .bh-media-pair .wp-block-image:last-child { transform: none; }
+    .bh-page .bh-cta { padding: 24px 6% 80px; }
+    .bh-page .bh-map-section { padding: 0 6% 72px; }
+    .bh-page .bh-map-section .bh-embed { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 640px) {
+    .bh-page .page-hero h1, .bh-page .bh-intro h1 { font-size: clamp(34px, 9vw, 44px); }
+    .bh-page .stage-hero .stage-heading h1 { font-size: 36px; }
+    .bh-page .hero-desc { font-size: 15.5px; }
+    .bh-page h2 { font-size: clamp(28px, 7.5vw, 34px); }
+    .bh-page .bh-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .bh-page .bh-fcard-grid.is-three { grid-template-columns: 1fr; }
+    .bh-page .bh-company-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .bh-page .bh-company { padding: 12px 12px 20px; }
+    .bh-page .bh-company h3 { font-size: 19px; margin: 0 2px 8px; }
+    .bh-page .bh-company p { font-size: 13.5px; margin: 0 2px 12px; }
+    .bh-page .bh-stats { grid-template-columns: 1fr; }
+    .bh-page .bh-stat, .bh-page .bh-stat + .bh-stat { border-left: 0; padding: 24px 0; }
+    .bh-page .bh-stat + .bh-stat { border-top: 1px solid var(--line); }
+    .bh-page .bh-squadrons { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .bh-page .bh-squadron { padding: 18px 16px; }
+    .bh-page .bh-squadron-number { font-size: 30px; }
+    .bh-page .bh-media-pair { grid-template-columns: 1fr; }
+    .bh-page .bh-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; gap: 10px; }
+    .bh-page .bh-gallery > *:first-child { grid-row: auto; }
+    .bh-page .bh-accordion ul, .bh-page .bh-plain-list { columns: 1; }
+    .bh-page .bh-contact-info { grid-template-columns: 1fr; }
+    .bh-form .form-grid { grid-template-columns: 1fr; }
+    .bh-page .bh-fcard-body { padding: 24px 22px 26px; }
+    .bh-page .bh-tour-section .bh-embed { aspect-ratio: 3 / 4; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .bh-page *, .bh-page *::before, .bh-page *::after { animation: none !important; transition: none !important; }
+    .bh-page .bh-reveal { opacity: 1; transform: none; }
+}
+
+/* Homepage "Our Studio" button (next to Portfolio) and its video popup. Only these two elements are styled here. */
+.wp-block-button.bh-studio-button .wp-block-button__link { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .7); transition: border-color .25s ease, color .25s ease, background .25s ease; }
+.wp-block-button.bh-studio-button .wp-block-button__link:hover { border-color: #65d5f0; color: #65d5f0; background: rgba(0, 0, 0, .25); }
+.wp-block-button.bh-studio-button .wp-block-button__link::before { content: '▶'; font-size: .7em; margin-right: 8px; vertical-align: 1px; }
+.bh-studio-modal { font-family: Poppins, sans-serif; width: min(1100px, 94vw); max-height: 92vh; padding: 0; border: 1px solid #2c3338; border-radius: 16px; background: #0d1013; color: #fff; overflow: auto; }
+.bh-studio-modal::backdrop { background: rgba(0, 0, 0, .78); backdrop-filter: blur(4px); }
+.bh-studio-modal[open] { animation: bh-modal-in .35s cubic-bezier(.2, .7, .2, 1); }
+@keyframes bh-modal-in { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
+.bh-studio-modal-inner { padding: 18px 22px 20px; }
+.bh-studio-modal-head { display: flex; align-items: center; gap: 18px; margin-bottom: 14px; }
+.bh-studio-modal-title { margin: 0; font-size: 20px; font-weight: 500; }
+.bh-studio-tabs { display: flex; gap: 6px; flex: 1; }
+.bh-studio-tabs button { background: transparent; color: #b4bdc7; border: 1px solid #39434e; border-radius: 999px; padding: 6px 16px; font: inherit; font-size: 14px; cursor: pointer; }
+.bh-studio-tabs button[aria-selected="true"] { background: #65d5f0; border-color: #65d5f0; color: #0b0e11; }
+.bh-studio-close { background: transparent; border: 0; color: #fff; font-size: 30px; line-height: 1; cursor: pointer; padding: 0 4px; }
+.bh-studio-close:hover { color: #65d5f0; }
+.bh-studio-video { border-radius: 10px; overflow: hidden; background: #000; }
+.bh-studio-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
+.bh-studio-video.is-scope video { aspect-ratio: 2.4 / 1; }
+.bh-studio-video.is-wide video { aspect-ratio: 2 / 1; }
+.bh-studio-more { margin: 14px 0 0; font-size: 14px; }
+.bh-studio-more a { color: #65d5f0; }
+@media (max-width: 600px) {
+    .bh-studio-modal-inner { padding: 14px; }
+    .bh-studio-modal-head { flex-wrap: wrap; gap: 10px; }
+    .bh-studio-modal-title { flex: 1; }
+    .bh-studio-tabs { order: 3; flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .bh-studio-modal[open] { animation: none; } }

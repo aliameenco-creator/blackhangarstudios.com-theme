@@ -6,6 +6,11 @@ require_once __DIR__ . '/includes/latest-portfolio.php';
 require_once __DIR__ . '/includes/homepage-sections.php';
 require_once __DIR__ . '/includes/portfolio-urls.php';
 require_once __DIR__ . '/includes/page-designs.php';
+require_once __DIR__ . '/includes/pages.php';
+require_once __DIR__ . '/includes/contact-form.php';
+require_once __DIR__ . '/includes/redirects.php';
+require_once __DIR__ . '/includes/footer.php';
+require_once __DIR__ . '/includes/productions.php';
 require_once __DIR__ . '/includes/github-updater.php';
 add_action( 'after_setup_theme', function () {
     add_theme_support( 'editor-styles' );
@@ -14,6 +19,7 @@ add_action( 'after_setup_theme', function () {
     add_editor_style( 'assets/poster-grid.css' );
     add_editor_style( 'assets/latest-portfolio.css' );
     add_editor_style( 'assets/trust-footer.css' );
+    add_editor_style( 'assets/inner-pages.css' );
     add_theme_support( 'post-thumbnails' );
 } );
 add_action( 'wp_enqueue_scripts', function () {
@@ -25,6 +31,8 @@ add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'black-hangar-poster-grid', get_theme_file_uri( 'assets/poster-grid.css' ), array( 'black-hangar-built-pages' ), (string) filemtime( get_theme_file_path( 'assets/poster-grid.css' ) ) );
     wp_enqueue_style( 'black-hangar-latest-portfolio', get_theme_file_uri( 'assets/latest-portfolio.css' ), array( 'black-hangar-poster-grid' ), '0.3.9' );
     wp_enqueue_style( 'black-hangar-trust-footer', get_theme_file_uri( 'assets/trust-footer.css' ), array( 'black-hangar-latest-portfolio' ), '0.3.9' );
+    wp_enqueue_style( 'black-hangar-inner-pages', get_theme_file_uri( 'assets/inner-pages.css' ), array( 'black-hangar-trust-footer' ), (string) filemtime( get_theme_file_path( 'assets/inner-pages.css' ) ) );
+    wp_enqueue_script( 'black-hangar-inner-pages', get_theme_file_uri( 'assets/inner-pages.js' ), array(), (string) filemtime( get_theme_file_path( 'assets/inner-pages.js' ) ), true );
     wp_enqueue_script( 'black-hangar', get_theme_file_uri( 'assets/theme.js' ), array(), (string) filemtime( get_theme_file_path( 'assets/theme.js' ) ), true );
 } );
 add_action( 'init', function () {

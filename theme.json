@@ -1,6 +1,13 @@
 {
 	"$schema": "https://schemas.wp.org/wp/7.1/theme.json",
 	"customTemplates": [
+    {
+      "name": "page-designed",
+      "title": "Black Hangar designed page (full width)",
+      "postTypes": [
+        "page"
+      ]
+    },
 		{
 			"name": "film-studio",
 			"postTypes": [
