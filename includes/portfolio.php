@@ -95,7 +95,8 @@ function bh_render_project( $attributes, $content, $block ) {
     try {
         $copy = apply_filters( 'the_content', get_post_field( 'post_content', $id ) );
     } finally { $rendering = false; }
-    $html .= '<h1>' . esc_html( get_the_title( $id ) ) . '</h1><div class="bh-project-copy">' . $copy . '</div>';
+    $title_size = max( 32, min( 120, absint( $attributes['titleSize'] ?? 64 ) ) );
+    $html .= '<h1 style="--bh-project-title-size:' . esc_attr( $title_size ) . 'px">' . esc_html( get_the_title( $id ) ) . '</h1><div class="bh-project-copy">' . $copy . '</div>';
     $html .= '</div></div>';
     if ( $video ) {
         $html .= '<section class="bh-trailer" aria-label="Production trailer"><h2>Watch the Trailer</h2><div class="bh-video"><iframe src="https://www.youtube-nocookie.com/embed/' . esc_attr( $video ) . '" title="' . esc_attr( get_the_title( $id ) . ' — trailer' ) . '" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></section>';

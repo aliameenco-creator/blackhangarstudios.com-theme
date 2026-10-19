@@ -177,6 +177,13 @@
   },
   "customTemplates": [
     {
+      "name": "page-designed",
+      "title": "Black Hangar designed page (full width)",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
       "name": "film-studio",
       "title": "Film studio",
       "postTypes": [
