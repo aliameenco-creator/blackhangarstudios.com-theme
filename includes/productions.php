@@ -2,10 +2,11 @@
 /**
  * Client requests (2026-10-19, finished films confirmed 2026-10-21), offered on Appearance -> Black Hangar Pages:
  * - "Our Studio" button next to Portfolio in the homepage hero: see includes/home.php.
- * - The finished productions The Fallow Few, The Chair and Frost added to the Portfolio. Text comes only from the
- *   archived Fallow Few site, its sales agent (Moviehouse Entertainment) and ORWO Distribution.
- *   The Fallow Few is published with its official poster. The Chair and Frost have no public poster yet, so they are
- *   added as drafts: add a poster (Featured image), then publish.
+ * - The finished productions The Fallow Few, The Chair and Frost added to the Portfolio and published with their
+ *   official posters. "The Chair" (also "Santa's Chair") was released as A Christmas Wish For Everyone (same director,
+ *   story and producers; its poster credits ORWO Studios & Black Hangar Studios), so it uses the release title and an
+ *   older "The Chair" draft is renamed. Sources: the Fallow Few sales agent (Moviehouse Entertainment), The Film
+ *   Catalogue (Kaleidoscope) and the official Frost site; text only from those and ORWO Distribution.
  * - Re-running is safe: a production that already exists is only completed (missing poster, year, trailer, or text
  *   still equal to the earlier draft text). Text someone changed is kept, and a published production is never unpublished.
  */
@@ -23,31 +24,58 @@ function bh_new_productions() {
             'image'   => 'assets/pages/the-fallow-few-poster.jpg',
             'alt'     => 'The Fallow Few poster: Bradley James, Luke Brandon Field and Tony Robinson',
         ),
-        'thechair' => array(
-            'title'   => 'The Chair',
-            'status'  => 'draft',
-            'content' => '<!-- wp:paragraph --><p>Directed by Maguy Cohen.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>A fresh family feature set in one location, a small mountain café: a mother-daughter story with a lot of heart.</p><!-- /wp:paragraph -->',
-            'old'     => array( '<!-- wp:paragraph --><p>Directed by Maguy Cohen.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>A mother-daughter story with a lot of heart, set in a small mountain café.</p><!-- /wp:paragraph -->' ),
+        'a-christmas-wish-for-everyone' => array(
+            'title'   => 'A Christmas Wish For Everyone',
+            'aliases' => array( 'thechair' => 'The Chair' ),
+            'status'  => 'publish',
+            'year'    => 2026,
+            'content' => '<!-- wp:paragraph --><p>A family-run café faces closure before Christmas, and its owner Elle and her daughter risk losing their home to developers. A magic wish-granting chair connects them with William, a visiting entrepreneur, and together they work to save the Mountain View Café and unite their community.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Starring Elizabeth Mitchell, Jeremy Piven and Bradley Stryker.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Directed by Maguy R. Cohen. Written by Maguy R. Cohen and Tom Stohlgren. Produced by Charley McDougall, Jamie McLeod-Ross, Joram Moreka and Jake Seal. An ORWO Studios and Black Hangar Studios production, developed under the title <em>The Chair</em>.</p><!-- /wp:paragraph -->',
+            'old'     => array(
+                '<!-- wp:paragraph --><p>Directed by Maguy Cohen.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>A mother-daughter story with a lot of heart, set in a small mountain café.</p><!-- /wp:paragraph -->',
+                '<!-- wp:paragraph --><p>Directed by Maguy Cohen.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>A fresh family feature set in one location, a small mountain café: a mother-daughter story with a lot of heart.</p><!-- /wp:paragraph -->',
+            ),
+            'image'   => 'assets/pages/a-christmas-wish-for-everyone-poster.jpg',
+            'alt'     => 'A Christmas Wish For Everyone poster: Jeremy Piven and Elizabeth Mitchell outside a snowy mountain café',
         ),
         'frost' => array(
             'title'   => 'Frost',
-            'status'  => 'draft',
+            'status'  => 'publish',
             'year'    => 2026,
-            'content' => '<!-- wp:paragraph --><p>A rational, emotionally distant police detective comes to a small town in East Serbia, a region known for its pagan traditions and black magic, to investigate the disappearance of a girl.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Directed by Pavle Vučković. Featuring Kamka Tocinovski, Jovo Maksić, Antonio Scarpa and Vesna Trivalić.</p><!-- /wp:paragraph -->',
-            'old'     => array( '' ),
+            'content' => '<!-- wp:paragraph --><p>A rational, emotionally distant police detective comes to a small town in East Serbia, a region known for its pagan traditions and black magic, to investigate the disappearance of a girl.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Starring Kamka Tocinovski, Jovo Maksić, Antonio Scarpa and Vesna Trivalić.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Written and directed by Pavle Vučković. Produced by Tatjana Žeželj Gojković, Jake Seal and Stefan Mladenović. Original title <em>Mraz</em>. Official Competition, Sitges Film Festival 2026.</p><!-- /wp:paragraph -->',
+            'old'     => array(
+                '',
+                '<!-- wp:paragraph --><p>A rational, emotionally distant police detective comes to a small town in East Serbia, a region known for its pagan traditions and black magic, to investigate the disappearance of a girl.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Directed by Pavle Vučković. Featuring Kamka Tocinovski, Jovo Maksić, Antonio Scarpa and Vesna Trivalić.</p><!-- /wp:paragraph -->',
+            ),
+            'trailer' => 'https://www.youtube.com/watch?v=WMUkNT0qAzc',
+            'image'   => 'assets/pages/frost-poster.jpg',
+            'alt'     => 'Frost poster: a hand touching a frozen leaf in a dark forest',
         ),
     );
 }
 
-/** The existing production for a slug (any status except the trash), or 0. */
+/** The existing production for a slug or one of its earlier slugs (any status except the trash), or 0. */
 function bh_production_id( $slug ) {
-    $ids = get_posts( array( 'post_type' => 'bh_portfolio', 'name' => $slug, 'post_status' => array( 'publish', 'future', 'draft', 'pending', 'private' ), 'numberposts' => 1, 'fields' => 'ids', 'suppress_filters' => true ) );
-    return $ids ? (int) $ids[0] : 0;
+    $item = bh_new_productions()[ $slug ] ?? array();
+    foreach ( array_merge( array( $slug ), array_keys( $item['aliases'] ?? array() ) ) as $name ) {
+        $ids = get_posts( array( 'post_type' => 'bh_portfolio', 'name' => $name, 'post_status' => array( 'publish', 'future', 'draft', 'pending', 'private' ), 'numberposts' => 1, 'fields' => 'ids', 'suppress_filters' => true ) );
+        if ( $ids ) { return (int) $ids[0]; }
+    }
+    return 0;
+}
+
+/** True when an existing production still has an earlier working title and slug that it should be renamed from. */
+function bh_production_needs_rename( $slug, $id ) {
+    $old = bh_new_productions()[ $slug ]['aliases'] ?? array();
+    $name = get_post_field( 'post_name', $id );
+    return isset( $old[ $name ] ) && get_the_title( $id ) === $old[ $name ];
 }
 
 /** True when a production was deliberately deleted (it is in the trash): it is never re-added. */
 function bh_production_trashed( $slug ) {
-    return (bool) get_posts( array( 'post_type' => 'bh_portfolio', 'name' => $slug . '__trashed', 'post_status' => 'trash', 'numberposts' => 1, 'fields' => 'ids', 'suppress_filters' => true ) );
+    foreach ( array_merge( array( $slug ), array_keys( bh_new_productions()[ $slug ]['aliases'] ?? array() ) ) as $name ) {
+        if ( get_posts( array( 'post_type' => 'bh_portfolio', 'name' => $name . '__trashed', 'post_status' => 'trash', 'numberposts' => 1, 'fields' => 'ids', 'suppress_filters' => true ) ) ) { return true; }
+    }
+    return false;
 }
 
 /** What adding/completing a production would change: empty when nothing is left to do. */
@@ -55,7 +83,7 @@ function bh_production_changes( $slug ) {
     $item = bh_new_productions()[ $slug ];
     $id = bh_production_id( $slug );
     if ( ! $id ) { return bh_production_trashed( $slug ) ? array() : array( 'create' ); }
-    $changes = array();
+    $changes = bh_production_needs_rename( $slug, $id ) ? array( 'rename' ) : array();
     if ( in_array( (string) get_post_field( 'post_content', $id ), $item['old'] ?? array(), true ) ) { $changes[] = 'content'; }
     if ( ! empty( $item['image'] ) && ! has_post_thumbnail( $id ) ) { $changes[] = 'poster'; }
     if ( ! empty( $item['year'] ) && '' === (string) get_post_meta( $id, 'bh_year', true ) ) { $changes[] = 'year'; }
@@ -103,6 +131,7 @@ function bh_add_new_productions() {
             $changes = array( 'poster', 'year', 'trailer', 'publish' );
         } else {
             $id = bh_production_id( $slug );
+            if ( in_array( 'rename', $changes, true ) ) { wp_update_post( wp_slash( array( 'ID' => $id, 'post_title' => $item['title'], 'post_name' => $slug ) ) ); }
             if ( in_array( 'content', $changes, true ) ) { wp_update_post( wp_slash( array( 'ID' => $id, 'post_content' => $item['content'] ) ) ); }
         }
         if ( in_array( 'year', $changes, true ) && ! empty( $item['year'] ) ) { update_post_meta( $id, 'bh_year', (int) $item['year'] ); }

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.6
+
+- Portfolio: **Add productions to Portfolio** now publishes all three finished films with their official posters:
+  - **The Fallow Few** (2025): poster, trailer, story, cast and credits (unchanged from 0.4.5).
+  - **A Christmas Wish For Everyone** (2026), the film developed as **The Chair** (also "Santa's Chair"): same director (Maguy R. Cohen), café story and producer Jake Seal; its poster credits ORWO Studios & Black Hangar Studios. Poster and details from The Film Catalogue (Kaleidoscope). Address /a-christmas-wish-for-everyone. A draft named "The Chair" from 0.4.0-0.4.5 is renamed and completed, not duplicated.
+  - **Frost** (2026, original title Mraz): official poster and trailer from the film's own site; written and directed by Pavle Vučković, produced by Tatjana Žeželj Gojković, Jake Seal and Stefan Mladenović; Official Competition, Sitges 2026.
+- Text someone edited is still kept; productions in the trash are not re-added.
+
+Validation: PHP integration checks for a fresh install and for upgrading the 0.4.x drafts (rename, completion, edited text kept, no duplicates); sandbox: the three film pages and the Portfolio grid show posters, years and trailers; no horizontal overflow at 390 px.
+
 ## 0.4.5
 
 - Portfolio: **Appearance -> Black Hangar Pages -> Add productions to Portfolio** now publishes **The Fallow Few** with its official poster (from its sales agent, Moviehouse Entertainment), year 2025, trailer, story, cast and credits (written and directed by JR Rappaport; produced by Jake Seal, JR Rappaport and Kevin Marshall).
