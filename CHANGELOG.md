@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.5
+
+- Portfolio: **Appearance -> Black Hangar Pages -> Add productions to Portfolio** now publishes **The Fallow Few** with its official poster (from its sales agent, Moviehouse Entertainment), year 2025, trailer, story, cast and credits (written and directed by JR Rappaport; produced by Jake Seal, JR Rappaport and Kevin Marshall).
+- **The Chair** (directed by Maguy Cohen) and **Frost** (directed by Pavle Vučković, 2026, text from ORWO Distribution) are saved as drafts with their story and credits, because neither has a public poster yet. Add a poster (Featured image) and publish.
+- Safe to re-run and safe after the 0.4.x "Add productions as drafts" action: existing drafts are completed (poster, year, trailer, updated text) instead of duplicated; text someone edited is kept; productions in the trash are not re-added; nothing is unpublished.
+
+Validation: 30 PHP integration checks including the upgrade from the old drafts and no duplicates; sandbox: /thefallowfew shows poster, story and trailer, Portfolio grid shows its poster card, The Chair and Frost not public.
+
 ## 0.4.4
 
 - **Privacy Policy** (/general-5-1) and **Terms & Conditions** (/general-5-2) written. The original site only said "Coming soon...". The Privacy Policy covers UK GDPR: the contact form fields, hosting (Hostinger), the Google Maps embed on Contact, the CloudPano 360 tour on Videos / Virtual Tour, social links, retention, rights and the ICO. The Terms cover website use, studio hire only under a written quotation/agreement, intellectual property, liability and the law of England and Wales. Owner review recommended (company name/number, retention).

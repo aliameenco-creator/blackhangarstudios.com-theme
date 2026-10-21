@@ -238,7 +238,7 @@ function bh_pages_screen() {
         } elseif ( 'dates' === $action && current_user_can( 'edit_others_posts' ) ) {
             $notices[] = array( 'success', sprintf( '%d blog posts now show their original publication dates.', bh_pages_fix_post_dates() ) );
         } elseif ( 'productions' === $action ) {
-            $notices[] = array( 'success', sprintf( '%d productions added to Portfolio as drafts. Add a poster (Featured image) and year, then publish.', bh_add_new_productions() ) );
+            $notices[] = array( 'success', sprintf( '%d productions added or completed. The Fallow Few is published; The Chair and Frost are drafts until they have a poster.', bh_add_new_productions() ) );
         } elseif ( 'links' === $action && current_user_can( 'edit_theme_options' ) ) {
             $notices[] = array( 'success', sprintf( '%d saved header, footer or menu items now link to the original addresses.', bh_pages_fix_links() ) );
         }
@@ -287,9 +287,9 @@ function bh_pages_screen() {
     $new = bh_new_productions_pending();
     echo '<h2>New portfolio productions</h2>';
     if ( $new ) {
-        echo '<p>' . esc_html( 'Adds ' . implode( ', ', array_map( function ( $slug ) { return bh_new_productions()[ $slug ]['title']; }, $new ) ) . ' to Portfolio as drafts with the information from the archived sites (The Fallow Few: cast, story, trailer and a film still). Add posters and release years, then publish each one.' ) . '</p><p><button class="button" name="bh_pages_action" value="productions">Add productions as drafts</button></p>';
+        echo '<p>' . esc_html( 'Adds or completes ' . implode( ', ', array_map( function ( $slug ) { return bh_new_productions()[ $slug ]['title']; }, $new ) ) . '. The Fallow Few is published with its official poster, year, trailer and story. The Chair and Frost are saved as drafts with their story and credits: add a poster (Featured image), then publish. Text you already changed is kept.' ) . '</p><p><button class="button button-primary" name="bh_pages_action" value="productions">Add productions to Portfolio</button></p>';
     } else {
-        echo '<p>The Fallow Few, The Chair and Frost are in Portfolio (see Portfolio in the admin menu to finish and publish them).</p>';
+        echo '<p>The Fallow Few, The Chair and Frost are in Portfolio. Drafts without a poster: add a Featured image in Portfolio, then publish.</p>';
     }
     echo '</form></div>';
 }
