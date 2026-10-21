@@ -1,6 +1,6 @@
-@font-face{font-family:Poppins;src:url('design/Poppins-Regular.ttf');font-weight:400;font-display:swap}
-@font-face{font-family:Poppins;src:url('design/Poppins-Medium.ttf');font-weight:500;font-display:swap}
-@font-face{font-family:Poppins;src:url('design/Poppins-Light.ttf');font-weight:300;font-display:swap}
+@font-face{font-family:Poppins;src:url('design/Poppins-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Poppins;src:url('design/Poppins-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:Poppins;src:url('design/Poppins-Light.woff2') format('woff2');font-weight:300;font-display:swap}
 .bh-built{--cyan:#00b5ed;--ink:#101010;--muted:#a9b0b5}
 .bh-built *{box-sizing:border-box}
 .bh-built html{scroll-behavior:smooth;scroll-padding-top:95px}

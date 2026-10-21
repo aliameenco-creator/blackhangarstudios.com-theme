@@ -1,10 +1,10 @@
 /* Paste LAST in Additional CSS. Upload the supplied fonts to the path below. */
-@font-face { font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Light.ttf') format('truetype')}
+@font-face { font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Light.woff2') format('woff2')}
 :where(/* Paste LAST in Additional CSS. Upload the supplied fonts to the path below. */
 @font-face){ font-family:BH Poppins; font-style:normal; font-weight:300}
-@font-face { font-family:BH Poppins; font-style:normal; font-weight:400; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Regular.ttf') format('truetype'); }
-@font-face { font-family:BH Poppins; font-style:italic; font-weight:400; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Italic.ttf') format('truetype'); }
-@font-face { font-family:BH Poppins; font-style:normal; font-weight:500; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Medium.ttf') format('truetype'); }
+@font-face { font-family:BH Poppins; font-style:normal; font-weight:400; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Regular.woff2') format('woff2'); }
+@font-face { font-family:BH Poppins; font-style:italic; font-weight:400; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Italic.woff2') format('woff2'); }
+@font-face { font-family:BH Poppins; font-style:normal; font-weight:500; font-display:swap; src:url('/wp-content/themes/black-hangar/assets/fonts/Poppins-Medium.woff2') format('woff2'); }
 .wp-site-blocks { --wp--preset--font-family--heading:'BH Poppins',Poppins,sans-serif; --wp--preset--font-family--body:'BH Poppins',Poppins,sans-serif; background:#101010; color:#fff}
 :where(.wp-site-blocks){ font-family:'BH Poppins',Poppins,sans-serif ; font-weight:400}
 .wp-site-blocks :is(h1,h2,h3,h4,h5,h6,.wp-block-post-title,.bh-brand) {}

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.3
+
+- Homepage browser tab / search title: "Black Hangar Studios | Best Film & TV Production Studio" ("UK's" removed). Replaces the earlier default even if it was already saved as the Yoast homepage title; a different title set in Yoast is left alone.
+- Faster homepage: the hero trailer is served as a 720p/30fps copy without the unused audio track (about 2 MB instead of 8.9 MB) with a poster frame, so the hero appears at once. The homepage saved in the Site Editor and the Media Library video are unchanged.
+- Faster pages: theme fonts (Inter, Barlow Condensed, Poppins) load as compressed WOFF2 files with Latin characters (about 180 KB instead of about 1.4 MB). The original TTF files stay in the theme.
+
+Validation: 22 PHP integration checks; 18 pages + homepage template valid in the block editor; copy check; sandbox homepage at 1440 and 390 px shows the new title, the light video with poster and all fonts loaded from WOFF2.
+
 ## 0.4.2
 
 - Header: floating rounded bar (logo left, menu right, cyan Contact pill, dark rounded dropdowns, underline on hover/current page; full-screen menu on phones). Styling only: menu items, links and logo unchanged.

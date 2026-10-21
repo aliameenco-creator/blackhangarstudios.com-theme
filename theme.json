@@ -127,7 +127,7 @@
 							"fontStyle": "normal",
 							"fontWeight": "600",
 							"src": [
-								"file:./assets/fonts/BarlowCondensed-SemiBold.ttf"
+								"file:./assets/fonts/BarlowCondensed-SemiBold.woff2"
 							]
 						}
 					],
@@ -143,7 +143,7 @@
 							"fontStyle": "normal",
 							"fontWeight": "100 900",
 							"src": [
-								"file:./assets/fonts/Inter.ttf"
+								"file:./assets/fonts/Inter.woff2"
 							]
 						}
 					],
