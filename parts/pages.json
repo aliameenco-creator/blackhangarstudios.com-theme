@@ -107,14 +107,16 @@
    "label": "Privacy Policy",
    "title": "Privacy Policy",
    "source": "https://www.blackhangarstudios.com/general-5-1",
-   "media": []
+   "media": [],
+   "version": "0.4.4"
   },
   {
    "slug": "general-5-2",
    "label": "Terms & Conditions",
    "title": "Terms & Conditions",
    "source": "https://www.blackhangarstudios.com/general-5-2",
-   "media": []
+   "media": [],
+   "version": "0.4.4"
   },
   {
    "slug": "lasham-airfield",

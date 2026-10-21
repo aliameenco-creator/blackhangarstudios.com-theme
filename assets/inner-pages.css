@@ -310,3 +310,10 @@
 /* Homepage "Our Studio" button (next to Portfolio, added by includes/home.php). */
 .wp-block-button.bh-studio-button .wp-block-button__link { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .7); transition: border-color .25s ease, color .25s ease, background .25s ease; }
 .wp-block-button.bh-studio-button .wp-block-button__link:hover { border-color: #65d5f0; color: #65d5f0; background: rgba(0, 0, 0, .25); }
+
+/* Legal pages (Privacy Policy, Terms & Conditions) */
+.wp-site-blocks .bh-page .bh-legal > p.bh-legal-updated { font-size: 14px !important; color: #9aa3ad !important; line-height: 1.6 !important; margin-bottom: 24px; }
+.wp-site-blocks .bh-legal > h2 { font-size: clamp(24px, 3vw, 32px); margin: 48px 0 12px; }
+.wp-site-blocks .bh-legal > ul { margin: 12px 0 16px; padding-left: 1.2em; }
+.wp-site-blocks .bh-legal > ul li { margin-bottom: 8px; }
+.wp-site-blocks .bh-legal a { text-decoration: underline; text-underline-offset: 3px; }

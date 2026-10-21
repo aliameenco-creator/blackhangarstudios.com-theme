@@ -22,7 +22,11 @@ function bh_pages_manifest() {
     return $manifest;
 }
 
-function bh_pages_version() {
+/** Design version of one page (its own "version" in pages.json, else the shared one), so a single page can be updated. */
+function bh_pages_version( $slug = '' ) {
+    foreach ( bh_pages_manifest()['pages'] ?? array() as $page ) {
+        if ( $slug === $page['slug'] && ! empty( $page['version'] ) ) { return (string) $page['version']; }
+    }
     return (string) ( bh_pages_manifest()['version'] ?? '0' );
 }
 
@@ -39,7 +43,7 @@ function bh_pages_state( $slug ) {
     $version = get_post_meta( $id, '_bh_design_version', true );
     if ( '' === $version ) { return array( $id, 'imported' ); }
     if ( md5( (string) get_post_field( 'post_content', $id ) ) !== get_post_meta( $id, '_bh_design_hash', true ) ) { return array( $id, 'edited' ); }
-    return array( $id, $version === bh_pages_version() ? 'current' : 'outdated' );
+    return array( $id, $version === bh_pages_version( $slug ) ? 'current' : 'outdated' );
 }
 
 /** Attachment for a media hash: the importer's upload, an earlier theme upload, or a new upload. 0 if unavailable. */
@@ -120,7 +124,7 @@ function bh_pages_apply( $slug ) {
     if ( is_wp_error( $result ) ) { return $result; }
     $id = (int) $result;
     update_post_meta( $id, '_wp_page_template', 'page-designed' );
-    update_post_meta( $id, '_bh_design_version', bh_pages_version() );
+    update_post_meta( $id, '_bh_design_version', bh_pages_version( $slug ) );
     update_post_meta( $id, '_bh_design_hash', md5( (string) get_post_field( 'post_content', $id ) ) );
     return $id;
 }

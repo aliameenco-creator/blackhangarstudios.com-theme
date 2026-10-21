@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.4
+
+- **Privacy Policy** (/general-5-1) and **Terms & Conditions** (/general-5-2) written. The original site only said "Coming soon...". The Privacy Policy covers UK GDPR: the contact form fields, hosting (Hostinger), the Google Maps embed on Contact, the CloudPano 360 tour on Videos / Virtual Tour, social links, retention, rights and the ICO. The Terms cover website use, studio hire only under a written quotation/agreement, intellectual property, liability and the law of England and Wales. Owner review recommended (company name/number, retention).
+- Appearance -> Black Hangar Pages now tracks a version per page, so only these two pages show "update available". The other 16 designed pages stay current and are not re-applied.
+
+Validation: 22 PHP integration checks; 18 pages + homepage template valid in the block editor; copy check (legal pages flagged as new copy); per-page update check (before: 16 current, 2 outdated; after applying: 18 current); sandbox screenshots at 1440 and 390 px with no horizontal overflow.
+
 ## 0.4.3
 
 - Homepage browser tab / search title: "Black Hangar Studios | Best Film & TV Production Studio" ("UK's" removed). Replaces the earlier default even if it was already saved as the Yoast homepage title; a different title set in Yoast is left alone.
